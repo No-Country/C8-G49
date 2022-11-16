@@ -1,0 +1,19 @@
+{
+  "name": "c8-g49",
+  "version": "1.0.0",
+  "description": "Red social de citas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/No-Country/C8-G49.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/No-Country/C8-G49/issues"
+  },
+  "homepage": "https://github.com/No-Country/C8-G49#readme"
+}
