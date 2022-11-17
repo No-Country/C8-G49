@@ -1,5 +1,6 @@
-import Profile from '../assets/sidebar-profile.png'
-import "../styles/Filtros.css"
+import Profile from '../assets/sidebar-profile.png';
+import "../styles/Filtros.css";
+
 function Filtros() {
     return (
         <div className="Filtros">
