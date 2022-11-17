@@ -1,11 +1,10 @@
-import React from 'react';
 import './App.css';
-import RouterPage from './router/RouterPage';
+import Router from './routes/Router';
 
 function App() {
-    return (
-        <RouterPage />
-    )
+	return (
+		<Router/>
+	)
 }
 
 export default App;

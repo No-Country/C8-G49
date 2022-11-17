@@ -4,17 +4,45 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    scroll-padding: 60.797px;
-    overflow-x: hidden;
-    @apply bg-slate-100 min-h-screen text-slate-900
+/***** colors: *****
+RegisterPage: #fba7fb
+EmailRegisterBtn: #FF80A1
+Links: #6F25D9
+Feed: #FFCBCB
+NavBar: #FFEAEA
+Icons: #ed3434
+*******************/ 
+
+* {
+	margin: 0;
+	padding: 0;
+    box-sizing: border-box;
 }
 
-@layer components{
-
+html {
+    scroll-behavior: smooth;
 }
-/*@apply*/
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
+    @apply bg-[#FFEAEA] min-h-screen text-black
+}
+
+@layer components {
+
+	.swiperCardImg {
+		filter: drop-shadow(0.2rem 0.2rem 0.15rem rgb(237, 52, 52, 0.5));
+	}
+
+	.swiperCardTextShadow {
+		text-shadow: 0.075rem 0.075rem 0.15rem #000;
+	}
+
+	.swiperCardIconShadow {
+		filter: drop-shadow(0.075rem 0.075rem 0.15rem rgb(0, 0, 0, 0.5));
+	}
+}
