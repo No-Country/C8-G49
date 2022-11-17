@@ -5,11 +5,12 @@ import { BiBell, BiHeart } from 'react-icons/bi';
 import { FiMessageSquare } from 'react-icons/fi'
 import { BsQuestionCircle } from 'react-icons/bs'
 
-import "../App.css"
+import "../styles/Nav.css"
+
 function Nav() {
     return (
         <>
-            <div className="logo bg-slate-800">
+            <div className="logo">
                 <h1 className='underline'>Matcher</h1>
                 <img src={Logo} alt="" />
             </div>
@@ -34,7 +35,9 @@ function Nav() {
                     <FiMessageSquare />
                 </a>
             </div>
-            <BsQuestionCircle />
+            <div className="faq">
+                <BsQuestionCircle />
+            </div>
 
         </>
     )
