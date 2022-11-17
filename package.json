@@ -15,5 +15,15 @@
   "bugs": {
     "url": "https://github.com/No-Country/C8-G49/issues"
   },
-  "homepage": "https://github.com/No-Country/C8-G49#readme"
+  "homepage": "https://github.com/No-Country/C8-G49#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  },
+  "dependencies": {
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.1",
+    "react-icons": "^4.6.0",
+    "react-router-dom": "^6.4.3",
+    "sort-by": "^1.2.0"
+  }
 }

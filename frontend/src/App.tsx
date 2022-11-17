@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
-import Inicio from './pages/Inicio';
+import RouterPage from './router/RouterPage';
 
-// IoShareSocialSharp, RiCloseCircleLine, IoHeartCircleOutline
 function App() {
 
   return (
-    <Inicio />
+    <RouterPage />
 
   );
 }
