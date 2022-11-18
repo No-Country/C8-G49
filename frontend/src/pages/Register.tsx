@@ -6,7 +6,7 @@ import { HiOutlineMail } from "react-icons/hi";
 const Register = () => {
     return (
         <div className='bg-[#fba7fb] min-h-screen w-screen flex flex-col gap-12 items-center justify-center'>
-            <img src={logo} alt="Matcher logo" className='w-56' />
+            <img src={logo} alt="Matcher logo" className='w-56 block' />
             <div className='w-64 text-center font-semibold text-xl'>
                 <p>Regístrate en Matcher y conoce un mundo de personas que te esperan en nuestra comunidad</p>
             </div>

@@ -1,10 +1,10 @@
-import { NavBar, SwiperCard, SwiperFilters, Recommended } from './../components/';
+import { SideBar, SwiperCard, SwiperFilters, Recommended } from './../components/';
 
 function Feed() {
     return (
-    <div className="flex min-h-screen w-screen bg-[#ffcbcb]">
-        <NavBar />
-        <div className="flex flex-col items-center justify-around py-4 w-[65%]">
+    <div className="flex h-screen w-screen bg-[#ffcbcb]">
+        <SideBar />
+        <div className="swiperContainer flex flex-col items-center justify-center">
             <SwiperFilters />
             <SwiperCard />
         </div>

@@ -11,7 +11,7 @@ Links: #6F25D9
 Feed: #FFCBCB
 NavBar: #FFEAEA
 Icons: #ed3434
-*******************/ 
+************************/ 
 
 * {
 	margin: 0;
@@ -34,15 +34,99 @@ body {
 
 @layer components {
 
-	.swiperCardImg {
+	/*** container clases ***/
+
+	.sideBarContainer {
+		width: 15%;
+	}
+
+	.swiperContainer {
+		width: 65%;
+	}
+
+	.recommendedContainer {
+		width: 20%;
+		gap: 0.75rem;
+	}
+
+	.recommendedImgContainer {
+		gap: 0.5rem;
+	}
+
+	/*** component clases ***/
+
+	.sideBarImg {
+		width: 7rem;
+	}
+
+	.recommendedImg {
+		width: 7rem;
+	}
+
+	/*** utility clases ***/
+
+	.cardShadow {
 		filter: drop-shadow(0.2rem 0.2rem 0.15rem rgb(237, 52, 52, 0.5));
 	}
 
-	.swiperCardTextShadow {
+	.textShadow {
 		text-shadow: 0.075rem 0.075rem 0.15rem #000;
 	}
 
-	.swiperCardIconShadow {
+	.iconShadow {
 		filter: drop-shadow(0.075rem 0.075rem 0.15rem rgb(0, 0, 0, 0.5));
 	}
+
+	.imgShadow {
+		filter: drop-shadow(0.15rem 0.15rem 0.1rem rgb(237, 52, 52, 0.5));
+	}
+
+	.textShadowRed {
+		text-shadow: 0.075rem 0.075rem 0 rgb(237, 52, 52, 0.25);
+	}
+
+	/*** media queries ***/
+
+	@media only screen and (max-width: 1000px) {
+        
+		.sideBarContainer {
+            width: 17%;
+        }
+
+		.swiperContainer {
+            width: 61%;
+        }
+
+		.recommendedContainer {
+            width: 22%;
+			gap: 3rem;
+        }
+
+		.recommendedImgContainer {
+			gap: 1.5rem;
+		}
+
+		.sideBarImg {
+			width: 5rem;
+		}
+
+		.recommendedImg {
+			width: 5rem;
+		}
+    }
+
+/* 	@media only screen and (max-width: 750px) {
+        
+		.sideBarContainer {
+            width: 20%;
+        }
+
+		.swiperContainer {
+            width: 55%;
+        }
+
+		.recommendedContainer {
+            width: 25%;
+        }
+    } */
 }
