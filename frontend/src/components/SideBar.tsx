@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 function SideBar() {
     return (
-        <div className='flex flex-col items-center py-10 bg-[#FFEAEA] h-full'>
+        <div className='flex flex-col items-center justify-center py-10 bg-[#FFEAEA] h-full'>
             <div className="flex flex-col gap-4 items-center">
             <Link to="/">
                 <img src={logo} alt="Matcher logo" className='w-20 block' loading='lazy' />

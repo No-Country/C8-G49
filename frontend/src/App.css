@@ -5,8 +5,6 @@
 @tailwind utilities;
 
 /***** colors: *****
-RegisterPage: #fba7fb
-EmailRegisterBtn: #FF80A1
 Links: #6F25D9
 Feed: #FFCBCB
 NavBar: #FFEAEA
@@ -86,6 +84,13 @@ body {
 	}
 
 	/*** media queries ***/
+
+/* 	@media only screen and (min-width: 1800px) {
+	
+		.feedContainer {
+			padding: 0 20rem 0 20rem;
+		}
+	} */
 
 	@media only screen and (max-width: 1000px) {
         
