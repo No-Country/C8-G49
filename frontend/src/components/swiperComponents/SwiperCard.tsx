@@ -1,42 +1,18 @@
-import image from '../../assets/card-profile.png';
-import { MdPlace } from 'react-icons/md';
-import { RiCloseCircleLine } from 'react-icons/ri';
-import { IoHeartCircleOutline } from 'react-icons/io5';
+import { SwiperMatcher } from '../';
 
 function SwiperCard() {
     return (
         <div className='flex flex-col items-center justify-center gap-4 md:mt-4 z-10'>
             <div className="relative flex flex-col items-center justify-center">
-                <img src={image} alt="imagen subida a Matcher" className='w-72 md:h-[23rem] md:w-[25.5rem]
-                object-cover rounded-2xl cardShadow block' loading='lazy' />
-                <div className="absolute top-6 left-[36%] md:left-[31%] -translate-x-1/2 text-white">
-                    <div className="flex flex-col items-start gap-1">
-                        <h1 className='textShadow font-extrabold text-2xl md:text-[1.75rem]'>Ayelen Vargas</h1>
-                        <h3 className='textShadow font-extrabold text-xl md:text-2xl'>24 años</h3>
-                        <div className="flex gap-1 items-center justify-center">
-                            <MdPlace className='iconShadow' size={25} />
-                            <p className='textShadow font-semibold text-lg md:text-xl'>San Antonio</p>
-                        </div>
-                        <p className='textShadow font-medium md:text-base'>Estudiante de Turismo</p>
-                    </div>
-                </div>
-                <div className="absolute bottom-2 md:bottom-4">
-                    <div className="flex gap-20 md:gap-32 justify-center items-center">
-                        <button>
-                            <RiCloseCircleLine color='#FFEAEA' size={80} className="iconShadow" />
-                        </button>
-                        <button>
-                            <IoHeartCircleOutline color='#ed3434' size={80} className="iconShadow" />
-                        </button>
-                    </div>
-                </div>
+                <SwiperMatcher />
             </div>
             <div className="w-[25.5rem] bg-[#FFEAEA] rounded-md hidden md:flex justify-center items-end gap-2 p-3">
                 <p className='text-sm font-medium'>
                     Lorem ipsum dolor sit amet consectet ura, adipisicing elit. Perspiasd deleniti 
                     expedita laudantium...
                 </p>
-                <button className='text-white font-semibold px-4 py-1 rounded-2xl min-w-max bg-[#ed3434]'>
+                <button className='text-white font-semibold px-4 py-1 rounded-2xl min-w-max bg-[#ed3434]
+                hover:bg-[#1F9AFF] transition-colors'>
                     Leer más
                 </button>
             </div>

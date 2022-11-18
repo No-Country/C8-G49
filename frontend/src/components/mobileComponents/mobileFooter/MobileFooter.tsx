@@ -16,7 +16,7 @@ const MobileFooter = () => {
             <Link to="/">
                 <BsFillEmojiHeartEyesFill size={34} color="#ed3434" className="cursor-pointer" />
             </Link>
-            <img src={profile} alt="foto de perfil" className="w-10" />
+            <img src={profile} alt="foto de perfil" className="w-10 block cursor-pointer" loading='lazy' />
         </div>
     )
 }

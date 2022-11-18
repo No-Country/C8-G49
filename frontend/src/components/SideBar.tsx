@@ -11,10 +11,11 @@ function SideBar() {
         <div className='flex flex-col items-center justify-center py-10 bg-[#FFEAEA] h-full'>
             <div className="flex flex-col gap-4 items-center">
             <Link to="/">
-                <img src={logo} alt="Matcher logo" className='w-20 block' loading='lazy' />
+                <img src={logo} alt="Matcher logo" className='w-20 block cursor-pointer' loading='lazy' />
             </Link>
                 <div className="flex flex-col items-center mt-2">
-                    <img src={profile} alt="foto de perfil" className='sideBarImg block' loading='lazy' />
+                    <img src={profile} alt="foto de perfil" className='sideBarImg block cursor-pointer'
+                    loading='lazy' />
                     <p className='font-semibold text-xl mt-2'>Cinthia</p>
                     <div className="flex flex-col px-2 mt-2 items-center justify-center">
                         <MdPlace size={25} color="#ed3434" />

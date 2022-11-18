@@ -4,12 +4,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/***** colors: *****
-Links: #6F25D9
+/***** colors: ******
+/////////////////////
+
 Feed: #FFCBCB
 NavBar: #FFEAEA
 Icons: #ed3434
-************************/ 
+Links: #1f5bff
+swipeLike: #72E52D
+swipeX: #1F9AFF
+
+/////////////////////
+********************/
 
 * {
 	margin: 0;
@@ -61,14 +67,32 @@ body {
 		width: 7rem;
 	}
 
+	.registerBtn {
+		transition: all 150ms ease;
+	}
+
+	.btnGoogle:hover {
+		transform: translateY(-0.15rem);
+		filter: drop-shadow(0.15rem 0.15rem 0.1rem rgb(237, 52, 52, 0.75));
+	}
+
+	.btnMail:hover {
+		transform: translateY(-0.15rem);
+		filter: drop-shadow(0.15rem 0.15rem 0.1rem rgba(0, 0, 0, 0.5));
+	}
+
 	/*** utility clases ***/
 
 	.cardShadow {
-		filter: drop-shadow(0.15rem 0.15rem 0.1rem rgb(237, 52, 52, 0.5));
+		filter: drop-shadow(0.15rem 0.15rem 0.1rem rgb(237, 52, 52, 0.6));
 	}
 
 	.textShadow {
 		text-shadow: 0.075rem 0.075rem 0.15rem #000;
+	}
+
+	.textShadowRed {
+		text-shadow: 0.075rem 0.075rem 0 rgb(237, 52, 52, 0.25);
 	}
 
 	.iconShadow {
@@ -77,10 +101,6 @@ body {
 
 	.imgShadow {
 		filter: drop-shadow(0.12rem 0.12rem 0.12rem rgb(237, 52, 52, 0.5));
-	}
-
-	.textShadowRed {
-		text-shadow: 0.075rem 0.075rem 0 rgb(237, 52, 52, 0.25);
 	}
 
 	/*** media queries ***/

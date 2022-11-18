@@ -3,5 +3,6 @@ export { default as SideBar } from './SideBar';
 export { default as Recommended } from './Recommended';
 export { default as SwiperCard } from './swiperComponents/SwiperCard';
 export { default as SwiperFilters } from './swiperComponents/SwiperFilters';
+export { default as SwiperMatcher } from './swiperComponents/SwiperMatcher';
 export { default as MobileNav } from './mobileComponents/mobileNav/MobileNav';
 export { default as MobileFooter } from './mobileComponents/mobileFooter/MobileFooter';
