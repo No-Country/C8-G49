@@ -3,7 +3,7 @@ import { BsFillSuitHeartFill } from 'react-icons/bs';
 
 function Recommended() {
     return (
-        <div className='recommendedContainer bg-[#FFEAEA] flex flex-col items-center justify-center'>
+        <div className='flex flex-col items-center justify-center h-full'>
             <div className="flex flex-col justify-center items-center px-4 py-2 rounded-full bg-[#ed3434]">
                 <BsFillSuitHeartFill color="#fff" size={13} />
                 <h2 className='text-white font-semibold text-sm'>Recomendados</h2>

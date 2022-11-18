@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 function SideBar() {
     return (
-        <div className='sideBarContainer flex flex-col items-center py-10 bg-[#FFEAEA]'>
+        <div className='flex flex-col items-center py-10 bg-[#FFEAEA] h-full'>
             <div className="flex flex-col gap-4 items-center">
             <Link to="/">
                 <img src={logo} alt="Matcher logo" className='w-20 block' loading='lazy' />
@@ -33,7 +33,9 @@ function SideBar() {
                     <FiMessageSquare size={40} color="#ed3434" className="cursor-pointer" />
                 </Link>
             </div>
-            <BsQuestionCircle size={30} color="#ed3434" className="mt-10 cursor-pointer" />
+            <Link to="/">
+                <BsQuestionCircle size={30} color="#ed3434" className="mt-10 cursor-pointer" />
+            </Link>
         </div>
     )
 
