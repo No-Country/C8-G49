@@ -63,7 +63,7 @@ body {
 		width: 7rem;
 	}
 
-	.sideBarBox:hover .userName {
+	.sideBarBox:hover p {
 		color: #ed3434;
 	}
 

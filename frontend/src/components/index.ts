@@ -5,5 +5,5 @@ export { default as SwiperCard } from './swiperComponents/SwiperCard';
 export { default as SwiperFilters } from './swiperComponents/SwiperFilters';
 export { default as SwiperMatcher } from './swiperComponents/SwiperMatcher';
 export { default as Swiper } from './swiperComponents/Swiper';
-export { default as MobileNav } from './mobileComponents/mobileNav/MobileNav';
-export { default as MobileFooter } from './mobileComponents/mobileFooter/MobileFooter';
+export { default as MobileNav } from './mobileComponents/MobileNav';
+export { default as MobileFooter } from './mobileComponents/MobileFooter';

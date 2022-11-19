@@ -1,14 +1,17 @@
 import horacio from '../assets/horacio.png';
 import { BsFillSuitHeartFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
-function Recommended() {
+const Recommended = () => {
     return (
         <div className='flex flex-col items-center justify-center h-full'>
-            <div className="flex flex-col justify-center items-center px-4 py-2 rounded-full bg-[#ed3434]
-            cursor-pointer shadow-md registerBtn btnRecommended">
-                <BsFillSuitHeartFill color="#fff" size={13} />
-                <h2 className='text-white font-semibold text-sm'>Recomendados</h2>
-            </div>
+            <Link to="/">
+                <div className="flex flex-col justify-center items-center px-4 py-2 rounded-full bg-[#ed3434]
+                cursor-pointer shadow-md registerBtn btnRecommended">
+                    <BsFillSuitHeartFill color="#fff" size={13} />
+                    <h2 className='text-white font-semibold text-sm'>Recomendados</h2>
+                </div>
+            </Link>
             <div className="recommendedImgContainer flex flex-col items-center justify-center">
                 <div className='flex flex-col items-center justify-center cursor-pointer transition-all
                 hover:text-[#ed3434] duration-200 recommendedCard'>

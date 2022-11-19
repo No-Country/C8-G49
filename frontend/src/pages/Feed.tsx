@@ -1,6 +1,6 @@
 import { SideBar, SwiperCard, SwiperFilters, Recommended, MobileNav, MobileFooter } from './../components/';
 
-function Feed() {
+const Feed = () => {
     return (
         <div className='feedContainer'>
             <div className="flex flex-col-reverse md:flex md:flex-row h-screen w-full bg-[#ffcbcb] relative">

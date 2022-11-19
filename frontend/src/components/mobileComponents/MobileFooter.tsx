@@ -1,4 +1,4 @@
-import profile from '../../../assets/sidebar-profile.png';
+import profile from '../../assets/sidebar-profile.png';
 import { BiHeart } from 'react-icons/bi';
 import { FiMessageSquare } from 'react-icons/fi';
 import { BsFillEmojiHeartEyesFill } from 'react-icons/bs';

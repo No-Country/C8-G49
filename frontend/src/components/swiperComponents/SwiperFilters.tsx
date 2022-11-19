@@ -1,6 +1,6 @@
 import profile from '../../assets/sidebar-profile.png';
 
-function SwiperFilters() {
+const SwiperFilters = () => {
     return (
         <div className="flex justify-around items-center bg-[#FFEAEA] md:w-[25.5rem] rounded-md
         shadow-md">

@@ -1,4 +1,4 @@
-function SwiperContainer() {
+const SwiperContainer = () => {
     return (
         <div>
             SwipperContainer
