@@ -10,7 +10,7 @@ function Feed() {
                 <div className='md:hidden block'>
                     <MobileFooter/>
                 </div>
-                <div className="swiperContainer flex flex-col items-center justify-center relative">
+                <div className="swiperContainer flex flex-col items-center justify-center gap-3 relative">
                     <SwiperFilters />
                     <SwiperCard />
                 </div>

@@ -1,32 +1,13 @@
-import image from '../../assets/card-profile.png';
+import { Swiper } from '../';
 import { MdPlace } from 'react-icons/md';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { IoHeartCircleOutline } from 'react-icons/io5';
-import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 
 const SwiperMatcher = () => {
     return (
     <>
         <div className='relative w-72 h-[22rem] md:h-[23rem] md:w-[25.5rem] cardShadow'>
-            <div className="z-10 relative top-[0.9rem] left-1/2 -translate-x-1/2 flex justify-between items-center
-            px-4 md:px-6">
-                <div className="h-[2.5px] w-16 md:w-24 bg-white shadow-md rounded-full"/>
-                <div className="h-[2.5px] w-16 md:w-24 bg-white/80 shadow-md rounded-full"/>
-                <div className="h-[2.5px] w-16 md:w-24 bg-white/80 shadow-md rounded-full"/>
-            </div>
-            <img src={image} alt="imagen subida a Matcher" className='absolute top-0 left-0 object-cover
-            rounded-2xl w-full h-full block' loading='lazy' />
-            <img src={image} alt="imagen subida a Matcher" className='absolute top-0 left-0 object-cover
-            rounded-2xl w-full h-full block' loading='lazy' />
-            <img src={image} alt="imagen subida a Matcher" className='absolute top-0 left-0 object-cover
-            rounded-2xl w-full h-full block' loading='lazy' />
-            <div className="z-10 absolute bottom-32 left-1/2 -translate-x-1/2 justify-between items-center
-            gap-44 md:gap-72 hidden sm:flex">
-                <HiOutlineChevronLeft size={40} className="cursor-pointer text-white/80 hover:text-white
-                transition-colors" />
-                <HiOutlineChevronRight size={40} className="cursor-pointer text-white/80 hover:text-white
-                transition-colors" />
-            </div>
+            <Swiper />
         </div>
         <div className="absolute top-6 left-[36%] md:left-[31%] -translate-x-1/2 text-white">
             <div className="flex flex-col items-start gap-1">

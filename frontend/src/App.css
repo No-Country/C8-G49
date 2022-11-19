@@ -63,8 +63,16 @@ body {
 		width: 7rem;
 	}
 
+	.sideBarBox:hover .userName {
+		color: #ed3434;
+	}
+
 	.recommendedImg {
 		width: 7rem;
+	}
+
+	.recommendedCard:hover img {
+		filter: drop-shadow(0.12rem 0.12rem 0.12rem rgb(237, 52, 52, 0.9));
 	}
 
 	.registerBtn {
@@ -79,6 +87,10 @@ body {
 	.btnMail:hover {
 		transform: translateY(-0.15rem);
 		filter: drop-shadow(0.15rem 0.15rem 0.1rem rgba(0, 0, 0, 0.5));
+	}
+
+	.btnRecommended:hover {
+		filter: drop-shadow(0.15rem 0.15rem 0.1rem rgba(0, 0, 0, 0.25));
 	}
 
 	/*** utility clases ***/
