@@ -12,7 +12,7 @@ const Register = () => {
             </div>
             <div className="flex flex-col gap-6">
                 <Link to="/feed">
-                    <button className="bg-[#FFEAEA] rounded-md min-w-[16rem] py-4 flex justify-center items-center
+                    <button className="bg-[#fff1f1] rounded-md min-w-[16rem] py-4 flex justify-center items-center
                     gap-4 shadow-md registerBtn btnGoogle">
                         <FcGoogle size={25}/>
                         <p>Regístrate con Google</p>
