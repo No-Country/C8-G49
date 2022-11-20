@@ -3,7 +3,7 @@ import { SideBar, SwiperCard, SwiperFilters, Recommended, MobileNav, MobileFoote
 const Feed = () => {
     return (
         <div className='feedContainer'>
-            <div className="flex flex-col-reverse md:flex md:flex-row h-screen w-full bg-[#ffcbcb] relative">
+            <div className="gradientBg flex flex-col-reverse md:flex md:flex-row h-screen w-full relative">
                 <div className="sideBarContainer md:block hidden">
                     <SideBar />
                 </div>
@@ -14,7 +14,7 @@ const Feed = () => {
                     <SwiperFilters />
                     <SwiperCard />
                 </div>
-                <div className="recommendedContainer md:block bg-[#FFEAEA] hidden">
+                <div className="recommendedContainer md:block bg-[#FF929D] hidden">
                     <Recommended />
                 </div>
                 <div className='md:hidden block absolute top-0 w-screen'>

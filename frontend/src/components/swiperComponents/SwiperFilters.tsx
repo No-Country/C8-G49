@@ -3,7 +3,7 @@ import profile from '../../assets/sidebar-profile.png';
 const SwiperFilters = () => {
     return (
         <div className="flex justify-around items-center bg-[#FFEAEA] md:w-[25.5rem] rounded-md
-        shadow-md">
+        shadow-md md:shadow-sm transition-shadow md:hover:shadow-md">
             <div className='py-2 grid grid-cols-3 gap-8 px-5 md:gap-14'>
                 <div className="flex flex-col items-center justify-center gap-1 md:gap-0 cursor-pointer
                 transition-colors hover:text-[#ed3434]">

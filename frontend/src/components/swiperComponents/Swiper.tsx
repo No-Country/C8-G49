@@ -3,7 +3,10 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 import { MdPlace } from 'react-icons/md';
 
 interface Props {
-    swiperSlides: Array<{url: string}>
+    swiperSlides: Array<
+        {
+            url: string
+        }>
 }
 
 const Swiper = ({swiperSlides}: Props) => {

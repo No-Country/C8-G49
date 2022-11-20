@@ -3,7 +3,6 @@ import { RiCloseCircleLine } from 'react-icons/ri';
 import { IoHeartCircleOutline } from 'react-icons/io5';
 
 const SwiperMatcher = () => {
-
     const swiperSlides = [
         {url: "https://i.ibb.co/k1F61YG/card-profile.png"},
         {url: "https://i.ibb.co/pZrkmwQ/sina-rezakhani-XES0z8w0-Ugc-unsplash.jpg"},
