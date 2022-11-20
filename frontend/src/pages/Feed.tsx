@@ -1,8 +1,26 @@
-import { SideBar, SwiperCard, SwiperFilters, Recommended, MobileNav, MobileFooter } from './../components/';
+import { SideBar,
+    SwiperCard,
+    SwiperFilters,
+    Recommended,
+    MobileNav,
+    MobileFooter,
+    FullScreenLoader
+} from './../components/';
+import { useState, useEffect } from "react"
 
 const Feed = () => {
+    const [ isLoading, setIsLoading ] = useState<boolean>(true)
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 500)
+    })
+
     return (
-        <div className='feedContainer'>
+        <>
+        {isLoading ? <FullScreenLoader/>
+        : <div className='feedContainer'>
             <div className="gradientBg flex flex-col-reverse md:flex md:flex-row h-screen w-full relative">
                 <div className="sideBarContainer md:block hidden">
                     <SideBar />
@@ -21,7 +39,8 @@ const Feed = () => {
                     <MobileNav/>
                 </div>
             </div>
-        </div>
+        </div>}
+        </>
     )
 }
 

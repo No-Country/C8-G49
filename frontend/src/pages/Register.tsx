@@ -2,10 +2,22 @@ import logo from "../assets/logoRegister.svg";
 import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaEnvelope, FaHeart } from "react-icons/fa";
+import { FullScreenLoader } from '../components/';
+import { useState, useEffect } from 'react';
 
 const Register = () => {
+    const [ isLoading, setIsLoading ] = useState<boolean>(true)
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 500)
+    })
+
     return (
-        <div className='gradientBg h-screen w-screen flex flex-col gap-12 items-center justify-center'>
+        <>
+        {isLoading ? <FullScreenLoader/>
+        : <div className='gradientBg h-screen w-screen flex flex-col gap-12 items-center justify-center'>
             <img src={logo} alt="Matcher logo" className='w-56 block' />
             <div className='w-64 text-center font-bold text-xl textShadowRed'>
                 <p>¡Regístrate en Matcher y conoce un mundo de personas que te esperan en nuestra comunidad!</p>
@@ -26,14 +38,15 @@ const Register = () => {
                     </button>
                 </Link>
                 <Link to="/feed">
-                    <button className="rounded-md min-w-[16rem] py-4 flex justify-center items-center
-                    gap-4 shadow-md registerBtn btnMail btnGradient">
+                    <button className="rounded-md min-w-[16rem] py-4 flex justify-center
+                    items-center gap-4 shadow-md registerBtn btnGoogle btnGradient">
                         <FaHeart color="#ed3434" size={20}/>
                         <p>Ya tengo una cuenta</p>
                     </button>
                 </Link>
             </div>
-        </div>
+        </div>}
+        </>
     )
 }
 

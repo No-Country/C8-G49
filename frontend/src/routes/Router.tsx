@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root } from "../components/";
 import { Register, Feed } from '../pages/';
+import { FullScreenLoader } from '../components/';
 
 const router = createBrowserRouter([
     {
@@ -16,7 +17,6 @@ const router = createBrowserRouter([
                 path: "/feed",
                 element: <Feed />,
             },
-
         ],
     },
 ]);

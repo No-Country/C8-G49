@@ -1,4 +1,4 @@
-import horacio from '../assets/horacio.png';
+import horacio from '../../assets/horacio.png';
 import { FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 

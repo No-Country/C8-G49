@@ -1,5 +1,5 @@
-import logo from '../assets/logoNavBar.svg';
-import profile from '../assets/sidebar-profile.png';
+import logo from '../../assets/logoNavBar.svg';
+import profile from '../../assets/sidebar-profile.png';
 import { FaBell, FaHeart, FaCommentAlt, FaCog } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
