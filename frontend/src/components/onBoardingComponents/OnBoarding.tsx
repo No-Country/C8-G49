@@ -52,7 +52,7 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
         : "formModal formModalXl fadeInModal"}>
             <button type='button' className='btnNewUserFormClose absolute text-[#2346e3] iconShadowSm
             transition-all hover:scale-105' onClick={() => handleClose()}>
-                <FaTimesCircle className="text-[2.25rem] md:text-[2.5rem]" />
+                <FaTimesCircle className="text-[1.75rem] md:text-[2.5rem]" />
             </button>
             <form onSubmit={onSubmit} className="newUserForm">
                 <div className='newUserFormContainer1'>
@@ -81,7 +81,7 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
 
                     ////////////////////////////////////////////////////////////////////////////////////////
                     /////////////////////////////////////////////////////////////////////////////////////*/}
-                    <div className='flex justify-center items-center gap-6'>
+                    <div className='newUserFormGender'>
                         <div className='flex flex-col items-start justify-center'>
                             <label htmlFor="gender" className='text-sm font-bold text-[#ed3434]'>
                                 Género
@@ -175,7 +175,7 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                         </label>
                         <textarea {...register('description', {required: true})} maxLength={500}
                         placeholder="Cuéntanos un poco sobre tí" id="description"
-                        className='mt-2 bg-white/90 rounded-md p-2 w-80 h-36 shadow-sm text-sm'/>
+                        className='mt-2 bg-white/90 rounded-md p-2 w-72 sm:w-80 h-36 shadow-sm text-sm'/>
                     </div>
                 </div>
                 <button type="submit" className='btnSubmit textShadowSm btnRegister btnRecommended shadow-md

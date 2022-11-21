@@ -22,7 +22,9 @@ const Register = () => {
         <div className='gradientBg h-screen w-full flex flex-col gap-12 items-center justify-center'>
             <img src={logo} alt="Matcher logo" className='w-56 block' />
             <div className='w-64 text-center font-bold text-xl textShadowRed'>
-                <p>¡Regístrate en Matcher y conoce un mundo de personas que te esperan en nuestra comunidad!</p>
+                <p className="text-[#ed3434] textShadowSm">
+                    ¡Regístrate en Matcher y conoce un mundo de personas que te esperan en nuestra comunidad!
+                </p>
             </div>
             <div className="flex flex-col gap-6">
                 <button type="button" className="bg-[#FFEAEA] rounded-md min-w-[16rem] py-4 flex
