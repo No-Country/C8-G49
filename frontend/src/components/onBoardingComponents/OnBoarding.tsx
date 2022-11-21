@@ -24,7 +24,7 @@ type FormData = {
 }
 
 const OnBoarding = ({ modalState, setModalState }: Props) => {
-    const { register, handleSubmit, getValues, reset } = useForm<FormData>()
+    const { register, handleSubmit, /* getValues, */ reset } = useForm<FormData>()
     const [activeClass, SetActiveClass] = useState<boolean>(false)
     const [showModalSuccess, setShowModalSuccess] = useState<boolean>(false)
     
@@ -38,8 +38,10 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
         SetActiveClass(true)
         setTimeout(() => {
             setModalState(false)
+        }, 300)
+        setTimeout(() => {
             SetActiveClass(false)
-        }, 250)
+        }, 350)
     }
 
     return (
@@ -48,7 +50,7 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
     <>
     <div className='formModalXl w-full h-full fixed top-0 left-0 bg-black/50 flex flex-col
     items-center justify-center'>
-        <div className={activeClass ? "fromModal formModalXl fadeInModal active"
+        <div className={activeClass ? "formModal formModalXl fadeInModal active"
         : "formModal formModalXl fadeInModal"}>
             <button type='button' className='btnNewUserFormClose absolute text-[#2346e3] iconShadowSm
             transition-all hover:scale-105' onClick={() => handleClose()}>

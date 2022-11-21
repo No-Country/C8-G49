@@ -32,7 +32,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	overflow-x: hidden;
-    @apply bg-[#FFEAEA] min-h-screen text-black
+    @apply bg-[#FFEAEA] h-screen text-black
 }
 
 input:focus, input:active, select:focus, select:active, textarea:focus, textarea:active {
@@ -97,7 +97,7 @@ textarea {
 	}
 
 	.formModal {
-		@apply relative rounded-xl bg-[#FFEAEA] w-[80%] h-[92.5%]
+		@apply relative rounded-xl bg-[#FFEAEA] w-[80%] h-[92.5%] transition-all
 	}
 
 	.newUserForm {

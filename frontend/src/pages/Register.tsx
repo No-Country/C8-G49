@@ -1,12 +1,13 @@
 import logo from "../assets/logoRegister.svg";
 import { FcGoogle } from "react-icons/fc";
 import { FaEnvelope, FaHeart } from "react-icons/fa";
-import { FullScreenLoader, OnBoarding  } from '../components/';
+import { FullScreenLoader, OnBoarding, Login  } from '../components/';
 import { useState, useEffect } from 'react';
 
 const Register = () => {
     const [ isLoading, setIsLoading ] = useState<boolean>(true)
     const [showModal, setShowModal] = useState<boolean>(false)
+    const [showLogin, setShowLogin] = useState<boolean>(false)
 
     useEffect(() => {
         setTimeout(() => {
@@ -41,13 +42,14 @@ const Register = () => {
                 </button>
                 <button type="button" className="rounded-md min-w-[16rem] py-4 flex justify-center
                 items-center gap-4 shadow-md btnRegister btnGoogle btnGradient"
-                onClick={() => setShowModal(true)}>
+                onClick={() => setShowLogin(true)}>
                     <FaHeart color="#ed3434" size={20}/>
                     <p>Ya tengo una cuenta</p>
                 </button>
             </div>
         </div>
         <OnBoarding modalState={showModal} setModalState={setShowModal} />
+        <Login modalState={showLogin} setModalState={setShowLogin} />
         </>}
         </>
     )
