@@ -127,6 +127,7 @@ textarea {
 	.formModalSuccess {
 		background: rgb(251,155,195);
 		background: linear-gradient(-180deg, rgba(251,155,195,1) 0%, rgba(255,203,203,1) 30%, rgba(255,203,203,1) 70%, rgba(251,155,195,1) 100%);
+		@apply relative flex flex-col items-center justify-center gap-8 rounded-3xl bg-[#FFEAEA] w-[35%] h-3/5
 	}
 
 	.sideBarImg {
@@ -234,6 +235,20 @@ textarea {
 	}
 
 	/*** media queries ***/
+
+	@media only screen and (min-width: 2100px) {
+	
+		.formModalSuccessXl {
+			padding: 12rem;
+		}
+	}
+
+	@media only screen and (min-width: 1800px) and (max-width: 2100px) {
+
+		.formModalSuccessXl {
+			padding: 7.5rem;
+		}
+	}
 
 	@media only screen and (min-width: 1800px) {
 	
@@ -346,6 +361,13 @@ textarea {
 		}
     }
 
+	@media only screen and (max-width: 870px) {
+
+		.formModalSuccess {
+			@apply gap-6 w-[60%]
+		}
+	}
+
 	@media only screen and (max-width: 767px) {
         
 		.swiperContainer {
@@ -357,6 +379,13 @@ textarea {
 			background: linear-gradient(-90deg, rgba(251,155,195,1) 0%, rgba(255,203,203,1) 30%, rgba(255,203,203,1) 70%, rgba(251,155,195,1) 100%);
 		}
     }
+
+	@media only screen and (max-width: 520px) {
+
+		.formModalSuccess {
+			@apply w-[92%]
+		}
+	}
 
 	@media only screen and (max-width: 470px) {
         
