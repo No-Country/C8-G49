@@ -97,7 +97,7 @@ textarea {
 	}
 
 	.formModal {
-		@apply relative rounded-xl bg-[#FFEAEA] w-[80%] h-[92.5%] transition-all
+		@apply relative rounded-xl bg-[#FFEAEA] w-[80%] h-[92.5%]
 	}
 
 	.newUserForm {
@@ -128,6 +128,12 @@ textarea {
 		background: rgb(251,155,195);
 		background: linear-gradient(-180deg, rgba(251,155,195,1) 0%, rgba(255,203,203,1) 30%, rgba(255,203,203,1) 70%, rgba(251,155,195,1) 100%);
 		@apply relative flex flex-col items-center justify-center gap-8 rounded-3xl bg-[#FFEAEA] w-[35%] h-3/5
+	}
+
+	.loginModal {
+		background: rgb(251,155,195);
+		background: linear-gradient(-180deg, rgba(251,155,195,1) 0%, rgba(255,203,203,1) 30%, rgba(255,203,203,1) 70%, rgba(251,155,195,1) 100%);
+		@apply relative rounded-xl w-72 sm:w-80 h-96 grid place-items-center
 	}
 
 	.sideBarImg {
@@ -180,8 +186,6 @@ textarea {
 	}
 
 	.btnSubmit {
-		background: rgb(255,146,157);
-		background: linear-gradient(-180deg, rgba(255,146,157,1) 0%, rgba(237,52,52,1) 100%);
 		@apply bottom-8
 	}
 
@@ -199,6 +203,11 @@ textarea {
 	.btnGradient {
 		background: rgb(255,203,203);
 		background: linear-gradient(-180deg, rgba(255,234,234,1)  40%, rgba(255,203,203,1) 100%);
+	}
+
+	.btnSubmitGradient {
+		background: rgb(255,146,157);
+		background: linear-gradient(-180deg, rgba(255,146,157,1) 0%, rgba(237,52,52,1) 100%);
 	}
 
 	.cardShadow {
@@ -251,7 +260,12 @@ textarea {
 	}
 
 	@media only screen and (min-width: 1800px) {
-	
+
+		body {
+			background: #ff929d;
+			background: linear-gradient(-180deg, #ff929d 40%, #ff929d 100%);
+		}
+
 		.feedContainer {
 			padding: 0 25rem 0 25rem;
 		}
