@@ -1,6 +1,5 @@
 import logo from "../../assets/logoRegister.svg";
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import { FaHeart } from "react-icons/fa";
 
 type Props = {
@@ -20,9 +19,9 @@ const OnBoardingSuccess = ({ modalState, modalSuccess, setModalState, setModalSu
         <>
         {modalState && modalSuccess ?
         <>
-        <div className='w-screen h-screen fixed top-0 left-0 bg-black/50 flex flex-col items-center
+        <div className='w-full h-full fixed top-0 left-0 bg-black/50 flex flex-col items-center
         justify-center'>
-            <div className="formModalSuccess formModalContainer relative flex flex-col items-center
+            <div className="formModalSuccess fadeInModal relative flex flex-col items-center
             justify-center gap-8 rounded-3xl bg-[#FFEAEA] w-[35%] h-3/5">
                 <div>
                     <img src={logo} alt="Matcher logo" className="w-64 block" />

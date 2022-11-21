@@ -56,13 +56,13 @@ textarea {
 @layer components {
 	
 	/*** container clases ***/
-	
-	.formModalContainer {
-		animation: fadeInTop 250ms linear forwards;
+
+	.newUserFormContainer1 {
+		@apply flex flex-col items-start w-1/2 gap-4 pl-8
 	}
 
-	.formModalContainer.active {
-		animation: fadeOutTop 250ms linear forwards;
+	.newUserFormContainer2 {
+		@apply flex flex-col items-start w-1/2 gap-0 pl-8
 	}
 
 	.sideBarContainer {
@@ -87,6 +87,38 @@ textarea {
 	}
 	
 	/*** component clases ***/
+
+	.fadeInModal {
+		animation: fadeInTop 250ms linear forwards;
+	}
+
+	.fadeInModal.active {
+		animation: fadeOutTop 250ms linear forwards;
+	}
+
+	.formModal {
+		@apply relative rounded-xl bg-[#FFEAEA] w-[80%] h-[92.5%]
+	}
+
+	.newUserForm {
+		@apply w-full h-full flex items-center justify-center
+	}
+
+	.newUserFormData {
+		@apply flex justify-center items-center gap-6
+	}
+
+	.newUserFormEmailPassword {
+		@apply flex flex-col justify-center items-center gap-4
+	}
+
+	.newUserFormImages {
+		@apply flex gap-3 mt-2
+	}
+
+	.newUserFormDesc {
+		@apply flex flex-col items-start justify-center mt-7
+	}
 
 	.formModalSuccess {
 		background: rgb(251,155,195);
@@ -137,14 +169,19 @@ textarea {
 		transform: translateY(-0.15rem);
 		filter: drop-shadow(0.15rem 0.15rem 0.1rem rgba(0, 0, 0, 0.5));
 	}
-
-	.btnRecommended:hover {
-		filter: drop-shadow(0.15rem 0.15rem 0.1rem rgb(237, 52, 52, 0.75));
+	
+	.btnNewUserFormClose {
+		@apply top-8 right-8
 	}
 
 	.btnSubmit {
 		background: rgb(255,146,157);
 		background: linear-gradient(-180deg, rgba(255,146,157,1) 0%, rgba(237,52,52,1) 100%);
+		@apply bottom-8
+	}
+
+	.btnRecommended:hover {
+		filter: drop-shadow(0.15rem 0.15rem 0.1rem rgb(237, 52, 52, 0.75));
 	}
 
 	/*** utility clases ***/
@@ -199,6 +236,78 @@ textarea {
 		.feedContainer {
 			padding: 0 25rem 0 25rem;
 		}
+
+		.formModalXl {
+			padding: 7.5rem;
+		}
+	}
+
+	@media only screen and (max-width: 1200px) {
+		
+		.formModal{
+			@apply w-full h-full rounded-none
+		}
+
+		.newUserFormContainer1 {
+			@apply w-full gap-1 pl-0 items-center
+		}
+
+		.newUserFormContainer1 label {
+			@apply text-[0.8rem]
+		}
+		
+		.newUserFormContainer1 select {
+			@apply text-[0.8rem] p-[0.35rem]
+		}
+
+		.newUserFormContainer1 input {
+			@apply text-xs p-[0.35rem]
+		}
+
+		.newUserFormContainer2 {
+			@apply w-full gap-1 pl-0 mt-3 mb-12 items-center 
+		}
+
+		.newUserFormContainer2 label, .newUserFormContainer2 p,
+		.newUserFormContainer2 small, .newUserFormContainer2 textarea {
+			@apply text-[0.8rem]
+		}
+
+		.newUserFormContainer2 input{
+			@apply text-xs p-[0.35rem]
+		}
+
+		.newUserFormContainer2 textarea {
+			@apply h-16
+		}
+
+		.newUserFormData {
+			@apply mr-[10.25rem] mb-1
+		}
+
+		.newUserFormEmailPassword {
+			@apply grid grid-cols-2 gap-6
+		}
+
+		.newUserFormEmailPassword :nth-child(3) {
+			@apply -mt-4
+		}
+
+		.newUserFormImages label {
+			@apply w-16
+		}
+
+		.newUserFormDesc {
+			@apply mt-0
+		}
+
+		.btnNewUserFormClose {
+			@apply top-4 right-3
+		}
+
+		.btnSubmit {
+			@apply bottom-4
+		}
 	}
 
 	@media only screen and (max-width: 1000px) {
@@ -228,6 +337,14 @@ textarea {
 			width: 5rem;
 		}
     }
+
+	@media only screen and (max-width: 1200px) {
+		
+		.newUserForm{
+			@apply flex-col
+		}
+
+	}
 
 	@media only screen and (max-width: 767px) {
         
