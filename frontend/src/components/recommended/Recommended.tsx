@@ -7,7 +7,7 @@ const Recommended = () => {
         <div className='flex flex-col items-center justify-center h-full'>
             <Link to="/">
                 <div className="flex flex-col justify-center items-center px-4 py-2 rounded-full btnGradient
-                cursor-pointer shadow-md shadow-black/10 registerBtn btnRecommended">
+                cursor-pointer shadow-md shadow-black/10 btnRegister btnRecommended">
                     <FaHeart size={13} className="text-[#ed3434] textShadowSm" />
                     <h2 className='text-[#ed3434] textShadowSm font-bold text-sm'>Recomendados</h2>
                 </div>

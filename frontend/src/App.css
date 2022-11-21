@@ -8,6 +8,7 @@
 /////////////////////
 
 SideBars: #FF929D
+red: #ed3434
 Icons: #FFEAEA
 swipeLike: #72E52D
 swipeX: #1F9AFF
@@ -34,9 +35,35 @@ body {
     @apply bg-[#FFEAEA] min-h-screen text-black
 }
 
-@layer components {
+input:focus, input:active, select:focus, select:active, textarea:focus, textarea:active {
+	outline: none;
+}
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+textarea {
+	resize: none;
+}
+
+@layer components {
+	
 	/*** container clases ***/
+	
+	.formModalContainer {
+		animation: fadeInTop 250ms linear forwards;
+	}
+
+	.formModalContainer.active {
+		animation: fadeOutTop 250ms linear forwards;
+	}
 
 	.sideBarContainer {
 		width: 15%;
@@ -58,8 +85,13 @@ body {
 	.swiperInfoContainer {
 		animation: fadeOpacity 3s linear forwards;
 	}
-
+	
 	/*** component clases ***/
+
+	.formModalSuccess {
+		background: rgb(251,155,195);
+		background: linear-gradient(-180deg, rgba(251,155,195,1) 0%, rgba(255,203,203,1) 30%, rgba(255,203,203,1) 70%, rgba(251,155,195,1) 100%);
+	}
 
 	.sideBarImg {
 		width: 7rem;
@@ -82,7 +114,17 @@ body {
 		filter: drop-shadow(0.12rem 0.12rem 0.12rem rgb(237, 52, 52, 0.9));
 	}
 
-	.registerBtn {
+	.sliderCounter {
+		@apply h-[2.25px] w-14 md:w-20 rounded-full
+	}
+
+	.loadingLogo {
+		animation: scaleUpAndDown 750ms linear infinite;
+	}
+	
+	/*** buttons ***/
+	
+	.btnRegister {
 		transition: all 150ms ease;
 	}
 
@@ -100,12 +142,9 @@ body {
 		filter: drop-shadow(0.15rem 0.15rem 0.1rem rgb(237, 52, 52, 0.75));
 	}
 
-	.sliderCounter {
-		@apply h-[2.25px] w-14 md:w-20 rounded-full
-	}
-
-	.loadingLogo {
-		animation: scaleUpAndDown 750ms linear infinite;
+	.btnSubmit {
+		background: rgb(255,146,157);
+		background: linear-gradient(-180deg, rgba(255,146,157,1) 0%, rgba(237,52,52,1) 100%);
 	}
 
 	/*** utility clases ***/
@@ -134,6 +173,10 @@ body {
 
 	.iconShadow {
 		filter: drop-shadow(0.075rem 0.075rem 0.15rem rgb(0, 0, 0, 0.5));
+	}
+
+	.iconShadowSm {
+		filter: drop-shadow(0.05rem 0.05rem 0.1rem rgb(0, 15, 84, 0.5));
 	}
 
 	.imgShadow {
@@ -191,24 +234,15 @@ body {
 		.swiperContainer {
             width: 100%;
         }
-
+		
 		.gradientBg {
 			background: rgb(251,155,195);
 			background: linear-gradient(-90deg, rgba(251,155,195,1) 0%, rgba(255,203,203,1) 30%, rgba(255,203,203,1) 70%, rgba(251,155,195,1) 100%);
 		}
     }
-
+	
 	/*** animations ***/
-
-	@keyframes fadeOpacity { 
-		0% {
-			opacity: 1;
-		}
-		100% {
-			opacity: 0.7;
-		}
-	}
-
+	
 	@keyframes scaleUpAndDown { 
 		0% {
 			scale: 1;
@@ -224,6 +258,45 @@ body {
 		}
 		100% {
 			scale: 1;
+		}
+	}
+
+	@keyframes fadeInTop {
+		0% {
+			opacity: 0;
+			top: -50px;
+		}
+		50% {
+			opacity: 0.5;
+			top: -25px;
+		}
+		100% {
+			opacity: 1;
+			top: 0;
+		}
+	}
+
+	@keyframes fadeOutTop {
+		0% {
+			opacity: 1;
+			top: 0;
+		}
+		50% {
+			opacity: 0.25;
+			top: -25px;
+		}
+		100% {
+			opacity: 0;
+			top: -50px;
+		}
+	}
+
+	@keyframes fadeOpacity { 
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0.7;
 		}
 	}
 }

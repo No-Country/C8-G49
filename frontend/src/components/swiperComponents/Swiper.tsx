@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 import { MdPlace } from 'react-icons/md';
 
-interface Props {
+type Props = {
     swiperSlides: Array<
-        {
-            url: string
-        }>
+    {
+        url: string
+    }>
 }
 
 const Swiper = ({swiperSlides}: Props) => {

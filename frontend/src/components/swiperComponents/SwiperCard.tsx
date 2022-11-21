@@ -12,8 +12,8 @@ const SwiperCard = () => {
                     Lorem ipsum dolor sit amet consectet ura, adipisicing elit. Perspiasd deleniti 
                     expedita laudantium...
                 </p>
-                <button className='text-black/80 font-bold px-4 py-1 rounded-2xl min-w-max
-                gradientBg shadow-md shadow-black/10 registerBtn btnRecommended'>
+                <button type='button' className='text-black/80 font-bold px-4 py-1 rounded-2xl min-w-max
+                gradientBg shadow-md shadow-black/10 btnRegister btnRecommended'>
                     Leer más
                 </button>
             </div>

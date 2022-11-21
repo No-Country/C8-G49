@@ -17,12 +17,12 @@ const SwiperMatcher = () => {
         </div>
         <div className="absolute bottom-2 md:bottom-4">
             <div className="flex gap-20 md:gap-32 justify-center items-center">
-                <button className='iconShadow text-[#FFEAEA] hover:text-[#1F9AFF] hover:scale-110
-                transition-all duration-200 ease-linear noSelect'>
+                <button type='button' className='iconShadow text-[#FFEAEA] hover:text-[#1F9AFF]
+                hover:scale-110 transition-all duration-200 ease-linear noSelect'>
                     <RiCloseCircleLine size={80} />
                 </button>
-                <button className='iconShadow text-[#ed3434] hover:text-[#72E52D] hover:scale-110
-                transition-all duration-200 ease-linear noSelect'>
+                <button type='button' className='iconShadow text-[#ed3434] hover:text-[#72E52D]
+                hover:scale-110 transition-all duration-200 ease-linear noSelect'>
                     <IoHeartCircleOutline size={80} />
                 </button>
             </div>
