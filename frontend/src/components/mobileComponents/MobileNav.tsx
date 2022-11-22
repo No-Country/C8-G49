@@ -1,5 +1,5 @@
 import logo from '../../assets/logoRegister.svg';
-import { FaBell, FaCog } from 'react-icons/fa';
+import { FaBell, FaGrinHearts } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const MobileNav = () => {
@@ -10,9 +10,9 @@ const MobileNav = () => {
             </Link>
             <div className="flex items-center justify-center gap-6 sm:gap-8">
                 <Link to="/">
-                    <FaCog size={27} className="cursor-pointer text-[#FFEAEA] sideBarIcon" />
+                    <FaGrinHearts size={33} className="cursor-pointer text-[#FFEAEA] sideBarIcon" />
                 </Link>
-                <Link to="/">
+                <Link to="/" >
                     <FaBell size={33} className="cursor-pointer text-[#FFEAEA] sideBarIcon" />
                 </Link>
             </div>
