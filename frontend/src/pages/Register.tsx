@@ -5,7 +5,7 @@ import { FullScreenLoader, OnBoarding, Login  } from '../components/';
 import { useState, useEffect } from 'react';
 
 const Register = () => {
-    const [ isLoading, setIsLoading ] = useState<boolean>(true)
+    const [isLoading, setIsLoading] = useState<boolean>(true)
     const [showModal, setShowModal] = useState<boolean>(false)
     const [showLogin, setShowLogin] = useState<boolean>(false)
 

@@ -19,7 +19,7 @@ const Login = ({ modalState, setModalState }: Props) => {
     const navigate = useNavigate()
 
     const onSubmit = handleSubmit((values) => {
-        console.log(`Form submit: ${JSON.stringify(values)}`)
+        alert(`Form submit: ${JSON.stringify(values)}`)
         reset()
         navigate("/feed")
     })

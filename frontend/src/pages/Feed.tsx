@@ -9,7 +9,7 @@ import { SideBar,
 import { useState, useEffect } from "react"
 
 const Feed = () => {
-    const [ isLoading, setIsLoading ] = useState<boolean>(true)
+    const [isLoading, setIsLoading] = useState<boolean>(true)
 
     useEffect(() => {
         setTimeout(() => {

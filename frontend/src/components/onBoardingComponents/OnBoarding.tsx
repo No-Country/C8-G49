@@ -29,7 +29,7 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
     const [showModalSuccess, setShowModalSuccess] = useState<boolean>(false)
     
     const onSubmit = handleSubmit((values) => {
-        console.log(`Form submit: ${JSON.stringify(values)}`)
+        alert(`Form submit: ${JSON.stringify(values)}`)
         reset()
         setShowModalSuccess(true)
     })
@@ -83,7 +83,7 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
 
                     ////////////////////////////////////////////////////////////////////////////////////////
                     /////////////////////////////////////////////////////////////////////////////////////*/}
-                    <div className='newUserFormGender'>
+                    {/* <div className='newUserFormGender'>
                         <div className='flex flex-col items-start justify-center'>
                             <label htmlFor="gender" className='text-sm font-bold text-[#ed3434]'>
                                 Género
@@ -178,7 +178,7 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                         <textarea {...register('description', {required: true})} maxLength={500}
                         placeholder="Cuéntanos un poco sobre tí" id="description"
                         className='mt-2 bg-white/90 rounded-md p-2 w-72 sm:w-80 h-36 shadow-sm text-sm'/>
-                    </div>
+                    </div> */}
                 </div>
                 <button type="submit" className='btnSubmit btnSubmitGradient textShadowSm btnRegister
                 btnRecommended shadow-md font-bold tracking-wider absolute text-[#FFEAEA] rounded-full
