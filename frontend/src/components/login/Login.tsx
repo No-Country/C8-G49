@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { FaTimesCircle } from 'react-icons/fa';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaHeart } from 'react-icons/fa';
 
 type Props = {
     modalState: boolean
@@ -46,8 +47,15 @@ const Login = ({ modalState, setModalState }: Props) => {
                 transition-all hover:scale-105' onClick={() => handleClose()}>
                     <FaTimesCircle className="text-[2.15rem]" />
                 </button>
-                <form onSubmit={onSubmit} className="grid place-items-center gap-8">
-                    <div className='grid place-items-center gap-6 mt-5'>
+                <form onSubmit={onSubmit} className="grid place-items-center">
+                    <div className='grid place-items-center'>
+                        <div className='flex justify-center gap-2'>
+                        <p className='text-xl font-bold text-[#FFEAEA] imgShadow'>Login</p>
+                        <FaHeart size={18} className='mt-[0.425rem] text-[#FFEAEA] imgShadow'/>
+                        </div>
+                        <div className='h-[3.55px] bg-[#ed3434] imgShadow rounded-full w-[110%] textShadow mt-1'/>
+                    </div>
+                    <div className='grid place-items-center gap-4 mt-5'>
                         <div className='flex flex-col items-center justify-center'>
                             <label htmlFor="email" className='font-bold text-[#ed3434]'>
                                 Correo electrónico
@@ -66,7 +74,7 @@ const Login = ({ modalState, setModalState }: Props) => {
                         </div>
                     </div>
                     <button type="submit" className='btnSubmitGradient textShadowSm btnRegister btnRecommended
-                    shadow-md font-bold tracking-wider text-lg text-[#FFEAEA] rounded-full mt-6 px-6 py-2'>
+                    shadow-md font-bold tracking-wider text-lg text-[#FFEAEA] rounded-full mt-8 px-6 py-2'>
                         Continuar
                     </button>
                 </form>
