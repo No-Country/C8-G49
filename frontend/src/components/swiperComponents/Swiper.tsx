@@ -6,7 +6,7 @@ type Props = {
     swiperSlides: Array<{url: string}>
 }
 
-const Swiper = ({swiperSlides}: Props) => {
+const Swiper = ({ swiperSlides }: Props) => {
     const [currentIndex, setCurrentIndex] = useState<number>(0)
     const [sliderBtnPressed, setSliderBtnPressed] = useState<boolean>(false)
 
@@ -38,7 +38,7 @@ const Swiper = ({swiperSlides}: Props) => {
                 : "sliderCounter bg-white/70 shadow-md"} />
             </div>
             <div style={{backgroundImage: `url(${swiperSlides[currentIndex].url})`}}
-            className="bg-cover bg-center absolute top-0 left-0 h-full w-full rounded-2xl" />
+            className="bg-cover bg-center bg-no-repeat absolute top-0 left-0 h-full w-full rounded-2xl" />
             <div className="z-10 absolute bottom-32 left-1/2 -translate-x-1/2 justify-between items-center
             gap-48 md:gap-[18.5rem] flex">
                 <HiOutlineChevronLeft size={40} className="cursor-pointer text-white/70 hover:text-white

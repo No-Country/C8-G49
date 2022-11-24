@@ -1,7 +1,7 @@
 import logo from "../assets/logoRegister.svg";
 import { FcGoogle } from "react-icons/fc";
 import { FaEnvelope, FaHeart } from "react-icons/fa";
-import { FullScreenLoader, OnBoarding, Login  } from '../components/';
+import { OnBoarding, Login, FullScreenLoader } from '../components/';
 import { useState, useEffect } from 'react';
 
 const Register = () => {

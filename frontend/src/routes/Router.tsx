@@ -1,20 +1,30 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Root } from "../components/";
-import { Register, Feed } from '../pages/';
+import { Register, Feed, UserPage } from '../pages/';
+import { Root, Error } from "./";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root />,
-        errorElement: <h1>No encontrado</h1>,
+        errorElement: <Error />,
         children: [
             {
                 path: "/",
-                element: <Register />,
+                element: <Register />
+                /* loader: async () => {
+                    return fakeDb.from("teams").select("*")
+                }, */
             },
             {
-                path: "/feed",
-                element: <Feed />,
+                path: "feed",
+                element: <Feed/>
+                /* loader: async ({ params }) => {
+                    return fetch(`/api/teams/${params.teamId}.json`)
+                }, */
+            },
+            {
+                path: "feed/user",
+                element: <UserPage />
             },
         ],
     },

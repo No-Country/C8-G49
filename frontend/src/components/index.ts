@@ -1,4 +1,3 @@
-export { default as Root } from './root/Root';
 export { default as FullScreenLoader } from './fullScreenLoader/FullScreenLoader';
 export { default as OnBoarding } from './onBoardingComponents/OnBoarding';
 export { default as OnBoardingSuccess } from './onBoardingComponents/OnBoardingSuccess';
@@ -11,3 +10,4 @@ export { default as SwiperMatcher } from './swiperComponents/SwiperMatcher';
 export { default as Swiper } from './swiperComponents/Swiper';
 export { default as MobileNav } from './mobileComponents/MobileNav';
 export { default as MobileFooter } from './mobileComponents/MobileFooter';
+export { default as NotificationsModal } from './notificationsModal/NotificationsModal';

@@ -32,7 +32,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	overflow-x: hidden;
-    @apply bg-[#FFEAEA] h-screen text-black
+    @apply bg-[#FFEAEA] h-screen text-neutral-800
 }
 
 input:focus, input:active, select:focus, select:active, textarea:focus, textarea:active {
