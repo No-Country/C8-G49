@@ -39,8 +39,7 @@ input:focus, input:active, select:focus, select:active, textarea:focus, textarea
 	outline: none;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -160,7 +159,19 @@ textarea {
 	.loadingLogo {
 		animation: scaleUpAndDown 750ms linear infinite;
 	}
-	
+
+	.fadeInLeftModal {
+		animation: fadeInLeft 250ms linear forwards;
+	}
+
+	.fadeInLeftModal.active {
+		animation: fadeOutLeft 250ms linear forwards;
+	}
+
+	.notificationsModal {
+		@apply h-full bg-[#FFEAEA] w-1/4 fixed top-0 left-0 z-20 rounded-r-2xl shadow-lg
+	}
+
 	/*** buttons ***/
 	
 	.btnRegister {
@@ -273,11 +284,11 @@ textarea {
 
 	@media only screen and (max-width: 1200px) {
 		
-		.formModal{
+		.formModal {
 			@apply w-full h-full rounded-none
 		}
 
-		.newUserForm{
+		.newUserForm {
 			@apply flex-col
 		}
 
@@ -306,7 +317,7 @@ textarea {
 			@apply text-[0.8rem]
 		}
 
-		.newUserFormContainer2 input{
+		.newUserFormContainer2 input {
 			@apply text-xs p-[0.35rem]
 		}
 
@@ -476,6 +487,36 @@ textarea {
 		}
 		100% {
 			opacity: 0.7;
+		}
+	}
+	
+	@keyframes fadeInLeft {
+		0% {
+			opacity: 0;
+			left: -50px;
+		}
+		50% {
+			opacity: 0.5;
+			left: -25px;
+		}
+		100% {
+			opacity: 1;
+			left: 0;
+		}
+	}
+
+	@keyframes fadeOutLeft {
+		0% {
+			opacity: 1;
+			left: 0px;
+		}
+		50% {
+			opacity: 0.5;
+			left: -25px;
+		}
+		100% {
+			opacity: 0;
+			left: -50px;
 		}
 	}
 }
