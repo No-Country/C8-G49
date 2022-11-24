@@ -1,11 +1,9 @@
-import React from 'react';
-import './App.css';
-import RouterPage from './router/RouterPage';
+import Router from './routes/Router';
 
-function App() {
-    return (
-        <RouterPage />
-    )
+const App = () => {
+	return (
+		<Router/>
+	)
 }
 
 export default App;

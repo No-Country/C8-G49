@@ -12,7 +12,6 @@ const UserModel = db.define("users", {
     age: { type: DataTypes.INTEGER },
     gender: { type: DataTypes.STRING },
     genderInterest: { type: DataTypes.STRING },
-    
     password: { type: DataTypes.STRING },
     description: { type: DataTypes.STRING },
     img1: { type: DataTypes.STRING },
