@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
-import { MdPlace } from 'react-icons/md';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
 type Props = {
     swiperSlides: Array<{url: string}>
@@ -52,7 +52,7 @@ const Swiper = ({ swiperSlides }: Props) => {
                         <h1 className='textShadow font-extrabold text-xl md:text-2xl'>Ayelen Vargas</h1>
                         <h3 className='textShadow font-extrabold text-lg md:text-xl'>24 años</h3>
                         <div className="flex gap-1 items-center justify-center">
-                            <MdPlace className='iconShadow' size={20} />
+                            <FaMapMarkerAlt className='iconShadow' size={19} />
                             <p className='textShadow font-semibold text-base md:text-lg'>San Antonio</p>
                         </div>
                         <p className='textShadow font-medium text-sm'>Estudiante de Turismo</p>

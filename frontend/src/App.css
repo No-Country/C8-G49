@@ -12,6 +12,7 @@ red: #ed3434
 Icons: #FFEAEA
 swipeLike: #72E52D
 swipeX: #1F9AFF
+formsGray: #e0d4d4
 
 /////////////////////
 ********************/
@@ -80,20 +81,8 @@ textarea {
 		gap: 0.5rem;
 		margin-top: 1.1rem;
 	}
-
-	.swiperInfoContainer {
-		animation: fadeOpacity 3s linear forwards;
-	}
 	
 	/*** component clases ***/
-
-	.fadeInModal {
-		animation: fadeInTop 250ms linear forwards;
-	}
-
-	.fadeInModal.active {
-		animation: fadeOutTop 250ms linear forwards;
-	}
 
 	.formModal {
 		@apply relative rounded-xl bg-[#FFEAEA] w-[80%] h-[92.5%]
@@ -156,20 +145,14 @@ textarea {
 		@apply h-[2.25px] w-14 md:w-20 rounded-full
 	}
 
-	.loadingLogo {
-		animation: scaleUpAndDown 750ms linear infinite;
-	}
-
-	.fadeInLeftModal {
-		animation: fadeInLeft 250ms linear forwards;
-	}
-
-	.fadeInLeftModal.active {
-		animation: fadeOutLeft 250ms linear forwards;
-	}
-
 	.notificationsModal {
-		@apply h-full bg-[#FFEAEA] w-1/4 fixed top-0 left-0 z-20 rounded-r-2xl shadow-lg
+		@apply h-full bg-[#FFEAEA] w-1/4 rounded-r-2xl shadow-lg fixed top-0 left-0 z-20 flex flex-col
+		items-center justify-start
+	}
+
+	.descriptionModal {
+		@apply absolute w-[101%] h-full flex flex-col bg-[#FFEAEA] cardShadow rounded-xl
+		justify-center items-center
 	}
 
 	/*** buttons ***/
@@ -196,7 +179,7 @@ textarea {
 		@apply bottom-8
 	}
 
-	.btnRecommended:hover {
+	.btnShadow:hover {
 		filter: drop-shadow(0.15rem 0.15rem 0.1rem rgb(237, 52, 52, 0.75));
 	}
 
@@ -376,6 +359,10 @@ textarea {
 		.recommendedImg {
 			width: 5rem;
 		}
+
+		.notificationsModal {
+			@apply w-full rounded-none shadow-none
+		}
     }
 
 	@media only screen and (max-width: 870px) {
@@ -432,6 +419,30 @@ textarea {
     }
 	
 	/*** animations ***/
+
+	.fadeInModal {
+		animation: fadeInTop 250ms linear forwards;
+	}
+
+	.fadeInModal.active {
+		animation: fadeOutTop 250ms linear forwards;
+	}
+	
+	.swiperInfoContainer {
+		animation: fadeOpacity 3s linear forwards;
+	}
+
+	.fadeInLeftModal {
+		animation: fadeInLeft 250ms linear forwards;
+	}
+
+	.fadeInLeftModal.active {
+		animation: fadeOutLeft 250ms linear forwards;
+	}
+
+	.loadingLogo {
+		animation: scaleUpAndDown 750ms linear infinite;
+	}
 	
 	@keyframes scaleUpAndDown { 
 		0% {

@@ -8,7 +8,7 @@ const SwiperFilters = () => {
                 <div className="flex flex-col items-center justify-center gap-1 md:gap-0 cursor-pointer
                 transition-colors hover:text-[#ed3434]">
                     <img src={profile} alt="foto de perfil" className='w-12 md:w-14 block' loading='lazy' />
-                    <p className='font-bold text-xs md:font-semibold md:text-sm'>En Línea</p>
+                    <p className='font-bold text-xs md:font-semibold md:text-sm'>En línea</p>
                 </div>
                 <div className="flex flex-col items-center justify-center gap-1 md:gap-0 cursor-pointer
                 transition-colors hover:text-[#ed3434]">

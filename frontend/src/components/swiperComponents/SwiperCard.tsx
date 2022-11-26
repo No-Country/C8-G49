@@ -1,8 +1,10 @@
-import { SwiperMatcher } from '../';
+import { SwiperMatcher, SwiperDescription } from '../';
+import { useState } from 'react';
 
 const SwiperCard = () => {
+        const [showModal, setShowModal] = useState<boolean>(false)
     return (
-        <div className='flex flex-col items-center justify-center gap-4 z-10'>
+        <div className='flex flex-col items-center justify-center gap-4 relative z-10'>
             <div className="relative flex flex-col items-center justify-center">
                 <SwiperMatcher />
             </div>
@@ -13,10 +15,12 @@ const SwiperCard = () => {
                     expedita laudantium...
                 </p>
                 <button type='button' className='text-[#ed3434] textShadowSm font-bold px-4 py-1
-                rounded-2xl min-w-max gradientBg shadow-md shadow-black/10 btnRegister btnRecommended'>
-                    Leer más
+                rounded-2xl min-w-max gradientBg shadow-md shadow-black/10 btnRegister btnShadow'
+                onClick={() => setShowModal(true)}>
+                    Ver más
                 </button>
             </div>
+            <SwiperDescription modalState={showModal} setModalState={setShowModal} />
         </div>
     )
 }

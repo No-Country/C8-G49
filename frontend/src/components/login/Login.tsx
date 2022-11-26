@@ -73,7 +73,7 @@ const Login = ({ modalState, setModalState }: Props) => {
                             shadow-sm w-[205px]'/>
                         </div>
                     </div>
-                    <button type="submit" className='btnSubmitGradient textShadowSm btnRegister btnRecommended
+                    <button type="submit" className='btnSubmitGradient textShadowSm btnRegister btnShadow
                     shadow-md font-bold tracking-wider text-lg text-[#FFEAEA] rounded-full mt-8 px-6 py-2'>
                         Continuar
                     </button>
