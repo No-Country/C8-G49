@@ -7,6 +7,20 @@ import { NotificationsModal } from '../';
 
 const SideBar = () => {
     const [showModal, setShowModal] = useState<boolean>(false)
+    const [showMessages, setShowMessages] = useState<boolean>(false)
+    const [showMatches, setShowMatches] = useState<boolean>(false)
+
+    const handleMatches = () => {
+        setShowModal(true)
+        setShowMatches(true)
+        setShowMessages(false)
+    }
+    
+    const handleMessages = () => {
+        setShowModal(true)
+        setShowMessages(true)
+        setShowMatches(false)
+    }
 
     return (
         <>
@@ -23,12 +37,14 @@ const SideBar = () => {
             </div>
             <div className='flex flex-col items-center gap-16 mt-16'>
                 <FaHeart size={35} className="cursor-pointer text-[#ed3434] sideBarIcon
-                transition-transform hover:scale-110 ease-out" onClick={() => setShowModal(true)} />
+                transition-transform hover:scale-110 ease-out" onClick={() => handleMatches()} />
                 <FaCommentAlt size={35} className="cursor-pointer text-[#FFEAEA] sideBarIcon
-                transition-transform hover:scale-110 ease-out" onClick={() => setShowModal(true)} />
+                transition-transform hover:scale-110 ease-out" onClick={() => handleMessages()} />
             </div>
         </div>
-        <NotificationsModal modalState={showModal} setModalState={setShowModal} />
+        <NotificationsModal modalState={showModal} setModalState={setShowModal}
+        messagesState={showMessages} matchesState={showMatches}
+        setMatchesState={setShowMatches} setMessagesState={setShowMessages} />
         </>
     )
 

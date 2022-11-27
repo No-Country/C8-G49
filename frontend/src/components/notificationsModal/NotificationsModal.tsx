@@ -6,10 +6,21 @@ import { MatchesAndChats } from "../";
 
 type Props = {
     modalState: boolean
+    messagesState: boolean
+    matchesState: boolean
     setModalState: React.Dispatch<React.SetStateAction<boolean>>
+    setMatchesState: React.Dispatch<React.SetStateAction<boolean>>
+    setMessagesState: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const NotificationsModal = ({ modalState, setModalState }: Props) => {
+const NotificationsModal = ({
+    modalState,
+    messagesState,
+    matchesState,
+    setModalState,
+    setMatchesState,
+    setMessagesState
+}: Props) => {
     const [activeClass, SetActiveClass] = useState<boolean>(false)
 
     const handleClose = () => {
@@ -46,9 +57,10 @@ const NotificationsModal = ({ modalState, setModalState }: Props) => {
                     </div>
                     <div className="absolute -bottom-3 rounded-full h-[3px] w-[99.5%] bg-[#FFCBCB]" />
                 </div>
-                <MatchesAndChats />
+                <MatchesAndChats messagesState={messagesState} matchesState={matchesState}
+                setMatchesState={setMatchesState} setMessagesState={setMessagesState} />
             </div>
-            <button type='button' className='absolute bottom-6 left-1/2 btnSubmitGradient textShadowSm btnRegister
+            <button type='button' className='absolute bottom-6 left-1/2 btnSubmitGradient textShadowSm btnTransition
             btnShadow shadow-md font-bold tracking-wider text-[#FFEAEA] rounded-full -translate-x-1/2
             px-4 py-1' onClick={() => handleClose()}>
                 Cerrar

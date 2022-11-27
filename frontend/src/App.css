@@ -146,27 +146,38 @@ textarea {
 	}
 
 	.notificationsModal {
-		@apply h-full bg-[#FFEAEA] w-1/4 rounded-r-2xl shadow-lg fixed top-0 left-0 z-20 flex flex-col
-		items-center justify-start
+		@apply h-full bg-[#FFEAEA] w-1/4 rounded-r-2xl shadow-lg fixed top-0 left-0 flex flex-col
+		items-center justify-start z-10
 	}
 
 	.descriptionModal {
 		@apply absolute w-[101%] h-full flex flex-col bg-[#FFEAEA] cardShadow rounded-xl
-		justify-center items-center
+		justify-center items-center z-50
+	}
+
+	.matchesAndChatsBox:hover :first-child {
+		@apply bg-[#ffe6e6]
+	}
+
+	.matchesAndChatsBox:hover div>div {
+		@apply border-[#ed3434]
+	}
+	.matchesAndChatsBox:hover p {
+		@apply text-[#ed3434]
 	}
 
 	/*** buttons ***/
 	
-	.btnRegister {
+	.btnTransition {
 		transition: all 150ms ease;
 	}
 
-	.btnGoogle:hover {
+	.btnHoverShadowRed:hover {
 		transform: translateY(-0.15rem);
 		filter: drop-shadow(0.15rem 0.15rem 0.1rem rgb(237, 52, 52, 0.75));
 	}
 
-	.btnMail:hover {
+	.btnHoverShadow:hover {
 		transform: translateY(-0.15rem);
 		filter: drop-shadow(0.15rem 0.15rem 0.1rem rgba(0, 0, 0, 0.5));
 	}
@@ -188,6 +199,11 @@ textarea {
 	.gradientBg {
 		background: rgb(255,203,203);
 		background: linear-gradient(-180deg, rgba(255,203,203,1) 40%, rgba(251,155,195,1) 100%);
+	}
+
+	.gradientBgMatches {
+		background: rgb(251, 155, 195);
+		background: linear-gradient(135deg, rgba(251,155,195,.9) 40%, rgba(237,52,52,.7) 100%);
 	}
 
 	.btnGradient {

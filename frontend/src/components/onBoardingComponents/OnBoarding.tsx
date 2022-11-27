@@ -170,7 +170,7 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                         className='mt-2 bg-white/90 rounded-md p-2 w-72 sm:w-80 h-36 shadow-sm text-sm'/>
                     </div>
                 </div>
-                <button type="submit" className='btnSubmit btnSubmitGradient textShadowSm btnRegister
+                <button type="submit" className='btnSubmit btnSubmitGradient textShadowSm btnTransition
                 btnShadow shadow-md font-bold tracking-wider absolute text-[#FFEAEA] rounded-full
                 px-6 py-2'>
                     Continuar

@@ -1,6 +1,5 @@
 import logo from "../assets/logoRegister.svg";
-import { FcGoogle } from "react-icons/fc";
-import { FaEnvelope, FaHeart } from "react-icons/fa";
+import { FaUser, FaHeart } from "react-icons/fa";
 import { OnBoarding, Login, FullScreenLoader } from '../components/';
 import { useState, useEffect } from 'react';
 
@@ -28,23 +27,17 @@ const Register = () => {
                 </p>
             </div>
             <div className="flex flex-col gap-6">
-                <button type="button" className="bg-[#FFEAEA] rounded-md min-w-[16rem] py-4 flex
-                justify-center items-center gap-4 shadow-md btnRegister btnGoogle"
+                <button type="button" className="bg-[#ed3434] text-[#FFEAEA] rounded-lg min-w-[16rem] 
+                py-4 flex justify-center gap-4 items-center shadow-md btnTransition btnHoverShadow"
                 onClick={() => setShowModal(true)}>
-                    <FcGoogle size={25}/>
-                    <p>Regístrate con Google</p>
+                    <FaUser size={22} />
+                    <p className="font-semibold">Quiero registrarme</p>
                 </button>
-                <button type="button" className="bg-[#ed3434] text-[#FFEAEA] rounded-md min-w-[16rem]
-                py-4 flex justify-center items-center gap-4 shadow-md btnRegister btnMail"
-                onClick={() => setShowModal(true)}>
-                    <FaEnvelope color="#FFEAEA" size={20}/>
-                    <p>Regístrate con tu email</p>
-                </button>
-                <button type="button" className="rounded-md min-w-[16rem] py-4 flex justify-center
-                items-center gap-4 shadow-md btnRegister btnGoogle btnGradient"
+                <button type="button" className="rounded-lg min-w-[16rem] py-4 flex justify-center
+                items-center shadow-md gap-4 btnTransition bg-[#FFEAEA] btnHoverShadowRed btnGradient"
                 onClick={() => setShowLogin(true)}>
-                    <FaHeart color="#ed3434" size={20}/>
-                    <p>Ya tengo una cuenta</p>
+                    <FaHeart color="#ed3434" size={20} />
+                    <p className="font-semibold">Ya tengo una cuenta</p>
                 </button>
             </div>
         </div>
