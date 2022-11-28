@@ -9,8 +9,13 @@ type Props = {
     setModalState: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+type FormData = {
+    email: string
+    password: string
+}
+
 const Login = ({ modalState, setModalState }: Props) => {
-    const { register, handleSubmit, reset } = useForm()
+    const { register, handleSubmit, reset } = useForm<FormData>()
     const [activeClass, SetActiveClass] = useState<boolean>(false)
     const navigate = useNavigate()
 
@@ -55,17 +60,15 @@ const Login = ({ modalState, setModalState }: Props) => {
                             <label htmlFor="email" className='font-bold text-[#ed3434]'>
                                 Correo electrónico
                             </label>
-                            <input {...register('email', {required: true})} placeholder="Tu email"
-                            id="email" type="email" className='mt-2 bg-white/90 rounded-md p-3 shadow-sm
-                            w-[205px]'/>
+                            <input {...register('email')} required placeholder="Tu email" id="email" type="email"
+                            className='mt-2 bg-white/90 rounded-md p-3 shadow-sm w-[205px]'/>
                         </div>
                         <div className='flex flex-col items-center justify-center'>
                             <label htmlFor="password" className='font-bold text-[#ed3434]'>
                                 Contraseña
                             </label>
-                            <input {...register('password', {required: true})} placeholder="Tu contraseña"
-                            id="password" type="password" className='mt-2 bg-white/90 rounded-md p-3
-                            shadow-sm w-[205px]'/>
+                            <input {...register('password')} placeholder="Tu contraseña" id="password"
+                            type="password" className='mt-2 bg-white/90 rounded-md p-3 shadow-sm w-[205px]'/>
                         </div>
                     </div>
                     <button type="submit" className='btnSubmitGradient textShadowSm btnTransition btnShadow
