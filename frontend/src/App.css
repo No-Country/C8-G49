@@ -81,6 +81,12 @@ textarea {
 		gap: 0.5rem;
 		margin-top: 1.1rem;
 	}
+
+	.matchesAndChatsContainer {
+		@apply grid grid-cols-2 w-full gap-4 px-4 py-4 place-content-start bg-white h-[20.5rem] border-[3px]
+		border-[#ed3434]/60 mt-8 rounded-lg overflow-y-auto overflow-x-hidden scrollbar-thin
+		scrollbar-track-[#ed3434]/30 scrollbar-thumb-[#ed3434]/90
+	}
 	
 	/*** component clases ***/
 
@@ -124,8 +130,12 @@ textarea {
 		@apply relative rounded-xl w-72 sm:w-80 h-96 grid place-items-center
 	}
 
+	.sideBarBox:hover :first-child {
+		@apply bg-[#FFEAEA]
+	}
+
 	.sideBarBox:hover p {
-		color: #FFEAEA;
+		@apply text-[#FFEAEA]
 	}
 
 	.sideBarIcon {
@@ -134,7 +144,7 @@ textarea {
 	}
 
 	.recommendedImg {
-		width: 6rem;
+		@apply w-24 h-24
 	}
 
 	.recommendedCard:hover img {
@@ -149,19 +159,20 @@ textarea {
 		@apply h-full bg-[#FFEAEA] w-1/4 rounded-r-2xl shadow-lg fixed top-0 left-0 flex flex-col
 		items-center justify-start z-10
 	}
-
+	
 	.descriptionModal {
 		@apply absolute w-[101%] h-full flex flex-col bg-[#FFEAEA] cardShadow rounded-xl
 		justify-center items-center z-50
 	}
-
+	
 	.matchesAndChatsBox:hover :first-child {
 		@apply bg-[#ffe6e6]
 	}
 
-	.matchesAndChatsBox:hover div>div {
+	.matchesAndChatsBox:hover div > div {
 		@apply border-[#ed3434]
 	}
+
 	.matchesAndChatsBox:hover p {
 		@apply text-[#ed3434]
 	}
@@ -195,6 +206,11 @@ textarea {
 	}
 
 	/*** utility clases ***/
+
+	.pageGradientBg {
+		background: rgb(255,203,203);
+		background: linear-gradient(-180deg, rgba(255,203,203,1) 40%, rgba(251,155,195,1) 100%);
+	}
 
 	.gradientBg {
 		background: rgb(255,203,203);
@@ -272,7 +288,7 @@ textarea {
 			background: linear-gradient(-180deg, #ff929d 40%, #ff929d 100%);
 		}
 
-		.feedContainer {
+		.xlContainer {
 			padding: 0 25rem 0 25rem;
 		}
 
@@ -369,15 +385,19 @@ textarea {
 
 		.recommendedImgContainer {
 			gap: 2.25rem;
-			margin-top: 2rem;
+			margin-top: 3rem;
 		}
 
 		.recommendedImg {
-			width: 5rem;
+			@apply w-20 h-20
 		}
 
 		.notificationsModal {
 			@apply w-full rounded-none shadow-none
+		}
+
+		.matchesAndChatsContainer {
+			@apply grid-cols-6
 		}
     }
 
@@ -394,9 +414,13 @@ textarea {
             width: 100%;
         }
 		
-		.gradientBg {
+		.pageGradientBg {
 			background: rgb(251,155,195);
 			background: linear-gradient(-90deg, rgba(251,155,195,1) 0%, rgba(255,203,203,1) 30%, rgba(255,203,203,1) 70%, rgba(251,155,195,1) 100%);
+		}
+
+		.matchesAndChatsContainer {
+			@apply grid-cols-4
 		}
     }
 
@@ -432,6 +456,10 @@ textarea {
 		.newUserFormEmailPassword :nth-child(3) {
 			@apply mt-0
 		}
+
+		.matchesAndChatsContainer {
+			@apply grid-cols-2
+		}
     }
 	
 	/*** animations ***/
@@ -445,7 +473,7 @@ textarea {
 	}
 	
 	.swiperInfoContainer {
-		animation: fadeOpacity 3s linear forwards;
+		animation: fadeOpacity 1.5s linear forwards;
 	}
 
 	.fadeInLeftModal {
@@ -510,6 +538,9 @@ textarea {
 
 	@keyframes fadeOpacity { 
 		0% {
+			opacity: 1;
+		}
+		50% {
 			opacity: 1;
 		}
 		100% {

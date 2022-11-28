@@ -13,3 +13,7 @@ export { default as MobileNav } from './mobileComponents/MobileNav';
 export { default as MobileFooter } from './mobileComponents/MobileFooter';
 export { default as NotificationsModal } from './notificationsModal/NotificationsModal';
 export { default as MatchesAndChats } from './matchesAndChats/MatchesAndChats';
+export { default as UserSwiper } from './userComponents/UserSwiper';
+export { default as UserSwiperCard } from './userComponents/UserSwiperCard';
+export { default as UserSwiperDescription } from './userComponents/UserSwiperDescription';
+export { default as UserSideBar } from './userComponents/UserSideBar';

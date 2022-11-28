@@ -1,5 +1,5 @@
 import logo from '../../assets/logoNavBar.svg';
-import profile from '../../assets/sidebar-profile.png';
+import profile from '../../assets/horacio.png';
 import { useState } from 'react';
 import { FaHeart, FaCommentAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -24,13 +24,15 @@ const SideBar = () => {
 
     return (
         <>
-        <div className='flex flex-col items-center justify-center py-10 bg-[#FF929D] h-full'>
+        <div className='flex flex-col items-center justify-center py-10 bg-[#FF929D] h-screen'>
             <div className="flex flex-col gap-16 items-center">
                 <img src={logo} alt="Matcher logo" className='w-20 block' loading='lazy' />
                 <Link to="/user">
                     <div className="sideBarBox flex flex-col items-center justify-center mt-10">
-                        <img src={profile} alt="foto de perfil" className='w-[6.25rem] block cursor-pointer'
-                        loading='lazy' />
+                        <div className="p-[0.3rem] bg-[#ed3434] transition-colors rounded-full">
+                            <div style={{backgroundImage: `url(${profile})`}} className='h-28 w-28 bg-cover
+                            bg-center bg-no-repeat rounded-full'/>
+                        </div>
                         <p className='transition-colors font-semibold text-xl mt-2 textShadowSm'>Cinthia</p>
                     </div>
                 </Link>

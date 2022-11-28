@@ -1,4 +1,4 @@
-import profile from "../../assets/sidebar-profile.png";
+import profile from "../../assets/horacio.png";
 import logo from "../../assets/logoLoader.svg";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -43,10 +43,11 @@ const NotificationsModal = ({
                 <div className="relative h-fit w-full">
                     <div className="flex items-center justify-around w-full gap-20">
                         <Link to="/user">
-                            <div className="grid place-items-center cursor-pointer
-                            transition-colors hover:text-[#ed3434]">
-                                <img src={profile} alt="foto de perfil" className="w-14 block"
-                                loading='lazy' />
+                            <div className="grid place-items-center transition-colors hover:text-[#ed3434]">
+                                <div className="p-[0.225rem] bg-[#ed3434] rounded-full">
+                                    <div style={{backgroundImage: `url(${profile})`}} className='h-14 w-14
+                                    bg-cover bg-center bg-no-repeat rounded-full imgShadow'/>
+                                </div>
                                 <p className='font-semibold mt-[0.1rem]'>
                                     Mi perfil
                                 </p>
@@ -60,9 +61,9 @@ const NotificationsModal = ({
                 <MatchesAndChats messagesState={messagesState} matchesState={matchesState}
                 setMatchesState={setMatchesState} setMessagesState={setMessagesState} />
             </div>
-            <button type='button' className='absolute bottom-6 left-1/2 btnSubmitGradient textShadowSm btnTransition
-            btnShadow shadow-md font-bold tracking-wider text-[#FFEAEA] rounded-full -translate-x-1/2
-            px-4 py-1' onClick={() => handleClose()}>
+            <button type='button' className='absolute bottom-4 left-1/2 btnSubmitGradient textShadowSm
+            btnTransition btnShadow shadow-md font-bold tracking-wider text-[#FFEAEA] rounded-full
+            -translate-x-1/2 px-4 py-1' onClick={() => handleClose()}>
                 Cerrar
             </button>
         </div>

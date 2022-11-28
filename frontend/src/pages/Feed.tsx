@@ -20,8 +20,9 @@ const Feed = () => {
     return (
         <>
         {isLoading ? <FullScreenLoader/>
-        : <div className='feedContainer'>
-            <div className="gradientBg flex flex-col-reverse md:flex md:flex-row h-screen w-full relative">
+        : <div className='xlContainer'>
+            <div className="pageGradientBg flex flex-col-reverse md:flex md:flex-row items-center justify-center
+            h-screen w-full relative">
                 <div className="sideBarContainer md:block hidden">
                     <SideBar />
                 </div>

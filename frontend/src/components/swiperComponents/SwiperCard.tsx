@@ -6,7 +6,7 @@ const SwiperCard = () => {
         const [, setShowUi] = useState<boolean>(true)
         
     return (
-        <div className='flex flex-col items-center justify-center gap-4 relative'>
+        <div className='flex flex-col items-center justify-center gap-4 relative mb-[0.3rem] md:mb-0'>
             <div className="relative flex flex-col items-center justify-center">
                 <SwiperMatcher />
             </div>
@@ -22,7 +22,7 @@ const SwiperCard = () => {
                     Ver más
                 </button>
             </div>
-            <SwiperDescription modalState={showModal} setModalState={setShowModal} setUiState={setShowUi}/>
+            <SwiperDescription modalState={showModal} setModalState={setShowModal} setUiState={setShowUi} />
         </div>
     )
 }

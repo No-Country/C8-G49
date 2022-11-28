@@ -1,10 +1,27 @@
-import React from 'react';
+import { UserSideBar, UserSwiperCard, FullScreenLoader } from '../components';
+import { useState, useEffect } from "react"
 
 const UserPage = () => {
+    const [isLoading, setIsLoading] = useState<boolean>(true)
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 500)
+    })
+
     return (
-		<div className='ws-creen h-screen bg-black grid place-items-center'>
-			<h1 className='text-white text-3xl font-bold'>Hola</h1>
-		</div>
+        <>
+        {isLoading ? <FullScreenLoader/>
+        : <div className='xlContainer'>
+            <div className="pageGradientBg flex h-screen w-full items-center justify-center relative">
+                <div className="md:block hidden">
+                    <UserSideBar />
+                </div>
+                <UserSwiperCard />
+            </div>
+        </div>}
+        </>
     )
 }
 

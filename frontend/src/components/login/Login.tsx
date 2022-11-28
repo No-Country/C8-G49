@@ -3,19 +3,14 @@ import { FaTimesCircle } from 'react-icons/fa';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
-import { FormData } from "../../types";
 
 type Props = {
     modalState: boolean
     setModalState: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-type Form = {
-    FormData: FormData
-}
-
 const Login = ({ modalState, setModalState }: Props) => {
-    const { register, handleSubmit, reset } = useForm<Form>()
+    const { register, handleSubmit, reset } = useForm()
     const [activeClass, SetActiveClass] = useState<boolean>(false)
     const navigate = useNavigate()
 
@@ -60,7 +55,7 @@ const Login = ({ modalState, setModalState }: Props) => {
                             <label htmlFor="email" className='font-bold text-[#ed3434]'>
                                 Correo electrónico
                             </label>
-                            <input {...register('FormData.email', {required: true})} placeholder="Tu email"
+                            <input {...register('email', {required: true})} placeholder="Tu email"
                             id="email" type="email" className='mt-2 bg-white/90 rounded-md p-3 shadow-sm
                             w-[205px]'/>
                         </div>
@@ -68,7 +63,7 @@ const Login = ({ modalState, setModalState }: Props) => {
                             <label htmlFor="password" className='font-bold text-[#ed3434]'>
                                 Contraseña
                             </label>
-                            <input {...register('FormData.password', {required: true})} placeholder="Tu contraseña"
+                            <input {...register('password', {required: true})} placeholder="Tu contraseña"
                             id="password" type="password" className='mt-2 bg-white/90 rounded-md p-3
                             shadow-sm w-[205px]'/>
                         </div>
