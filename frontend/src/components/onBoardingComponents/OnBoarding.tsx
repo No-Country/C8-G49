@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { FaTimesCircle } from 'react-icons/fa';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { OnBoardingSuccess } from '../';
 
 type Props = {
@@ -27,6 +27,30 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
     const { register, handleSubmit, getValues, reset } = useForm<FormData>()
     const [activeClass, SetActiveClass] = useState<boolean>(false)
     const [showModalSuccess, setShowModalSuccess] = useState<boolean>(false)
+    let filesArray = []
+
+    const uploadImg = async (e: ChangeEvent<HTMLInputElement>) => {
+        const target = e.target as HTMLInputElement
+        const file: File = (target.files as FileList)[0]
+        console.log(file)
+        const base64 = await convertImg(file)
+        console.log(base64)
+    }
+
+    const convertImg = (file: File) => {
+        return new Promise((resolve, reject) => {
+            const fileReader = new FileReader()
+            fileReader.readAsDataURL(file)
+            
+            fileReader.onload = () => {
+                resolve(fileReader.result)
+            }
+            
+            fileReader.onerror = (error) => {
+                reject(error)
+            }
+        })
+    }
  
     const onSubmit = (data: any) => {
         alert(`Form submit: ${JSON.stringify(data)}`)
@@ -139,28 +163,28 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                                 rotate-45 rounded-full absolute -bottom-1 -right-1" />
                             </label>
                             <input {...register('img1')} required type="file" id="img1" accept=".jpg,.jpeg,.png"
-                            className="hidden"/>
+                            className="hidden" onChange={(e) => uploadImg(e)}/>
                             <label htmlFor="img2" className='relative aspect-[4/5] bg-[#e0d4d4] w-24
                             rounded-lg cursor-pointer border-2 border-[#E87C7C] border-dashed'>
                                 <FaTimesCircle size={18} className="bg-[#FFEAEA] text-[#ed3434]
                                 rotate-45 rounded-full absolute -bottom-1 -right-1" />
                             </label>
                             <input {...register('img2')} required type="file" id="img2" accept=".jpg,.jpeg,.png"
-                            className="hidden"/>
+                            className="hidden" onChange={(e) => uploadImg(e)}/>
                             <label htmlFor="img3" className='relative aspect-[4/5] bg-[#e0d4d4] w-24
                             rounded-lg cursor-pointer border-2 border-[#E87C7C] border-dashed'>
                                 <FaTimesCircle size={18} className="bg-[#FFEAEA] text-[#ed3434]
                                 rotate-45 rounded-full absolute -bottom-1 -right-1" />
                             </label>
                             <input {...register('img3')} required type="file" id="img3" accept=".jpg,.jpeg,.png"
-                            className="hidden"/>
+                            className="hidden" onChange={(e) => uploadImg(e)}/>
                             <label htmlFor="img4" className='relative aspect-[4/5] bg-[#e0d4d4] w-24
                             rounded-lg cursor-pointer border-2 border-[#E87C7C] border-dashed'>
                                 <FaTimesCircle size={18} className="bg-[#FFEAEA] text-[#ed3434]
                                 rotate-45 rounded-full absolute -bottom-1 -right-1" />
                             </label>
                             <input {...register('img4')} required type="file" id="img4" accept=".jpg,.jpeg,.png"
-                            className="hidden"/>
+                            className="hidden" onChange={(e) => uploadImg(e)}/>
                         </div>
                         <small className='mt-2'>Se requieren 4 imágenes para crear el perfil.</small>
                         <div className='newUserFormDesc'>
