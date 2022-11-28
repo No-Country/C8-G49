@@ -14,11 +14,11 @@ const Login = ({ modalState, setModalState }: Props) => {
     const [activeClass, SetActiveClass] = useState<boolean>(false)
     const navigate = useNavigate()
 
-    const onSubmit = handleSubmit((values) => {
-        alert(`Form submit: ${JSON.stringify(values)}`)
+    const onSubmit = (data: any) => {
+        alert(`Form submit: ${JSON.stringify(data)}`)
         reset()
         navigate("feed")
-    })
+    }
 
     const handleClose = () => {
         SetActiveClass(true)
@@ -42,7 +42,7 @@ const Login = ({ modalState, setModalState }: Props) => {
                 transition-all hover:scale-105' onClick={() => handleClose()}>
                     <FaTimesCircle className="text-[2.15rem]" />
                 </button>
-                <form onSubmit={onSubmit} className="grid place-items-center">
+                <form onSubmit={handleSubmit(onSubmit)} className="grid place-items-center">
                     <div className='grid place-items-center'>
                         <div className='flex justify-center gap-2'>
                         <p className='text-xl font-bold text-[#FFEAEA] imgShadow'>Login</p>

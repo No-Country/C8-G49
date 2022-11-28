@@ -12,11 +12,25 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
     const { register, handleSubmit, getValues, reset } = useForm()
     const [activeClass, SetActiveClass] = useState<boolean>(false)
     const [showModalSuccess, setShowModalSuccess] = useState<boolean>(false)
+    const [filebase64,setFileBase64] = useState<string>("")
+
+  // The Magic all happens here.
+  function convertFile(files: FileList|null) {
+    if (files) {
+      const fileRef = files[0] || ""
+      const fileType: string= fileRef.type || ""
+      console.log("This file upload is of type:",fileType)
+      const reader = new FileReader()
+      reader.readAsBinaryString(fileRef)
+      reader.onload=(ev: any) => {
+        // convert it to base64
+        setFileBase64(`data:${fileType};base64,${btoa(ev.target.result)}`)
+      }
+    }
+  }
     
     const onSubmit = (data: any) => {
-        const formData = new FormData()
-        const formasd = formData.append("picture", data.picture[0])
-        alert(formasd)
+        alert(`Form submit: ${JSON.stringify(data)}`)
         reset()
         setShowModalSuccess(true)
     }
