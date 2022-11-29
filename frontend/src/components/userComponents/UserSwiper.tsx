@@ -5,7 +5,7 @@ import { UserSwiperDescription } from '../';
 
 type Props = {
     userSwiperSlides: Array<{url: string}>
-}
+};
 
 const UserSwiper = ({ userSwiperSlides }: Props) => {
     const [currentIndex, setCurrentIndex] = useState<number>(0)

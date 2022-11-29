@@ -5,7 +5,7 @@ type Props = {
     modalState: boolean
     setModalState: React.Dispatch<React.SetStateAction<boolean>>
     setUiState: React.Dispatch<React.SetStateAction<boolean>>
-}
+};
 
 const SwiperDescription = ({ modalState, setModalState, setUiState }: Props) => {
     const [activeClass, SetActiveClass] = useState<boolean>(false)

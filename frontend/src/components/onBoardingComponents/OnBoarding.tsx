@@ -1,69 +1,77 @@
-import { useForm } from 'react-hook-form';
 import { FaTimesCircle } from 'react-icons/fa';
-import { ChangeEvent, useState } from 'react';
+import React, { useState } from 'react';
 import { OnBoardingSuccess } from '../';
-import { useEffect } from 'react';
 
 type Props = {
     modalState: boolean
     setModalState: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-type FormData = {
-    name: string
+};
+  
+type FormType = {
+    username: string
     age: number
     gender: string
     genderInterest: string
     email: string
     password: string
     confirmPassword: string
-    img1: File
-    img2: File
-    img3: File
-    img4: File
     description: string
-}
+};
 
 const OnBoarding = ({ modalState, setModalState }: Props) => {
-    const { register, handleSubmit, getValues, reset } = useForm<FormData>()
     const [activeClass, SetActiveClass] = useState<boolean>(false)
     const [showModalSuccess, setShowModalSuccess] = useState<boolean>(false)
+    const [formData, setFormData] = useState<FormType>({
+        username: "",
+        age: 18,
+        gender: "",
+        genderInterest: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        description: "",
+    })
+    const [img1, setImg1] = useState<File[]>([])
+    const [img2, setImg2] = useState<File[]>([])
+    const [img3, setImg3] = useState<File[]>([])
+    const [img4, setImg4] = useState<File[]>([])
 
-    const uploadImg = async (e: ChangeEvent<HTMLInputElement>) => {
-        const target = e.target as HTMLInputElement
-        const file: File = (target.files as FileList)[0]
-        console.log(file)
-        const base64 = await convertImg(file)
-        console.log(base64)
+    const handleImage1 = ({ currentTarget: {files}, }: React.ChangeEvent<HTMLInputElement>) => {
+        if (files && files.length) {
+            setImg1(existing => existing.concat(Array.from(files)))
+        }
     }
 
-    const convertImg = (file: File) => {
-        return new Promise((resolve, reject) => {
-            const fileReader = new FileReader()
-            fileReader.readAsDataURL(file)
-            
-            fileReader.onload = () => {
-                resolve(fileReader.result)
-            }
-
-            fileReader.onerror = (error) => {
-                reject(error)
-            }
-        })
+    const handleImage2 = ({ currentTarget: {files}, }: React.ChangeEvent<HTMLInputElement>) => {
+        if (files && files.length) {
+            setImg2(existing => existing.concat(Array.from(files)))
+        }
     }
 
-/*     const uploadImgs = (e: ChangeEvent<HTMLInputElement>) => {
-        const formData = new FormData()
-        const target = e.target as HTMLInputElement
-        const file: File = (target.files as FileList)[0]
-        formData.append("file", file)
-        console.log(formData)
-    } */
- 
-    const onSubmit = (data: any) => {
-        alert(`Form submit: ${JSON.stringify(data)}`)
-        reset()
-        setShowModalSuccess(true)
+    const handleImage3 = ({ currentTarget: {files}, }: React.ChangeEvent<HTMLInputElement>) => {
+        if (files && files.length) {
+            setImg3(existing => existing.concat(Array.from(files)))
+        }
+    }
+
+    const handleImage4 = ({ currentTarget: {files}, }: React.ChangeEvent<HTMLInputElement>) => {
+        if (files && files.length) {
+            setImg4(existing => existing.concat(Array.from(files)))
+        }
+    }
+
+    const getData = (
+        e: React.ChangeEvent<HTMLInputElement> |
+        React.ChangeEvent<HTMLSelectElement> |
+        React.ChangeEvent<HTMLTextAreaElement>) => {
+            setFormData(
+                { ...formData, [e.target.name]: e.target.value }
+            )
+    }
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+        console.log(formData, img1, img2, img3, img4)
     }
 
     const handleClose = () => {
@@ -75,7 +83,7 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
             SetActiveClass(false)
         }, 350)
     }
-
+        
     return (
         <>
         {modalState ?
@@ -88,23 +96,24 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                 transition-all hover:scale-105' onClick={() => handleClose()}>
                     <FaTimesCircle className="text-[1.75rem] md:text-[2.5rem]" />
                 </button>
-                <form onSubmit={handleSubmit(onSubmit)} className="newUserForm">
+                <form onSubmit={handleSubmit} className="newUserForm">
                     <div className='newUserFormContainer1'>
                         <div className='newUserFormData'>
                             <div className='flex flex-col items-start justify-center'>
                                 <label htmlFor="name" className='text-sm font-bold text-[#ed3434]'>
                                     Nombre Completo
                                 </label>
-                                <input {...register('name')} required placeholder="Tu nombre" id="name" type="text"
-                                className='mt-2 bg-white/90 rounded-md p-2 shadow-sm w-[205px] text-sm'/>
+                                <input required placeholder="Tu nombre" name="userName" type="text"
+                                className='mt-2 bg-white/90 rounded-md p-2 shadow-sm w-[205px] text-sm'
+                                onChange={getData}/>
                             </div>
                             <div className='flex flex-col items-start justify-center'>
                                 <label htmlFor="age" className='text-sm font-bold text-[#ed3434]'>
                                     Edad
                                 </label>
-                                <input {...register('age')} required placeholder="18" id="age" type="number"
+                                <input required placeholder="18" name="age" type="number"
                                 min="18" max="99" className='mt-2 bg-white/90 rounded-md p-2 shadow-sm
-                                w-10 text-sm'/>
+                                w-10 text-sm' onChange={getData}/>
                             </div>
                         </div>
                         <div className='newUserFormGender'>
@@ -112,8 +121,9 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                                 <label htmlFor="gender" className='text-sm font-bold text-[#ed3434]'>
                                     Género
                                 </label>
-                                <select {...register('gender')} required id="gender" className='mt-2 bg-white/90
-                                rounded-md p-2 shadow-sm w-[205px] text-sm' defaultValue="default">
+                                <select required name="gender" className='mt-2 bg-white/90 rounded-md p-2
+                                shadow-sm w-[205px] text-sm' defaultValue="default"
+                                onChange={getData}>
                                     <option value="default" disabled>Opciones</option>
                                     <option value="man">Hombre</option>
                                     <option value="woman">Mujer</option>
@@ -124,9 +134,9 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                                 <label htmlFor="genderInterest" className='text-sm font-bold text-[#ed3434]'>
                                     Me interesan
                                 </label>
-                                <select {...register('genderInterest')} required id="genderInterest"
-                                className='mt-2 bg-white/90 rounded-md p-2 shadow-sm w-[205px] text-sm'
-                                defaultValue="default">
+                                <select required name="genderInterest" className='mt-2 bg-white/90 rounded-md p-2
+                                shadow-sm w-[205px] text-sm' defaultValue="default"
+                                onChange={getData}>
                                     <option value="default" disabled>Opciones</option>
                                     <option value="man">Hombres</option>
                                     <option value="woman">Mujeres</option>
@@ -139,26 +149,26 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                                 <label htmlFor="email" className='text-sm font-bold text-[#ed3434]'>
                                     Correo electrónico
                                 </label>
-                                <input {...register('email')} required placeholder="Tu email" id="email"
-                                type="email" className='mt-2 bg-white/90 rounded-md p-2 shadow-sm
-                                w-[205px] text-sm'/>
+                                <input required placeholder="Tu email" name="email" type="email"
+                                className='mt-2 bg-white/90 rounded-md p-2 shadow-sm w-[205px] text-sm'
+                                onChange={getData}/>
                             </div>
                             <div className='flex flex-col items-start justify-center mt-1'>
                                 <label htmlFor="password" className='text-sm font-bold text-[#ed3434]'>
                                     Contraseña
                                 </label>
-                                <input {...register('password')} required placeholder="Tu contraseña" id="password"
-                                type="password" className='mt-2 bg-white/90 rounded-md p-2
-                                shadow-sm w-[205px] text-sm'/>
+                                <input required placeholder="Tu contraseña" name="password" type="password"
+                                className='mt-2 bg-white/90 rounded-md p-2 shadow-sm w-[205px] text-sm'
+                                onChange={getData}/>
                             </div>
                             <div className='flex flex-col items-start justify-center'>
                                 <label htmlFor="confirmPassword" className='text-sm font-bold text-[#ed3434]'>
                                     Confimar contraseña
                                 </label>
-                                <input {...register('confirmPassword',
-                                {validate: (value) => value === getValues('password')})} required
-                                placeholder="Confirma tu contraseña" id="confirmPassword" type="password"
-                                className='mt-2 bg-white/90 rounded-md p-2 shadow-sm w-[205px] text-sm'/>
+                                <input required placeholder="Confirma tu contraseña" name="confirmPassword"
+                                type="password" className='mt-2 bg-white/90 rounded-md p-2 shadow-sm
+                                w-[205px] text-sm'
+                                onChange={getData}/>
                             </div>
                         </div>
                     </div>
@@ -170,38 +180,39 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                                 <FaTimesCircle size={18} className="bg-[#FFEAEA] text-[#ed3434]
                                 rotate-45 rounded-full absolute -bottom-1 -right-1" />
                             </label>
-                            <input {...register('img1')} required type="file" id="img1" accept=".png, .jpg, .jpeg"
-                            className="hidden" onChange={(e) => uploadImg(e)}/>
+                            <input required type="file" name="img1" accept=".png, .jpg, .jpeg" className="hidden"
+                            onChange={handleImage1} id="img1"/>
                             <label htmlFor="img2" className='relative aspect-[4/5] bg-[#e0d4d4] w-24
                             rounded-lg cursor-pointer border-2 border-[#E87C7C] border-dashed'>
                                 <FaTimesCircle size={18} className="bg-[#FFEAEA] text-[#ed3434]
                                 rotate-45 rounded-full absolute -bottom-1 -right-1" />
                             </label>
-                            <input {...register('img2')} required type="file" id="img2" accept=".png, .jpg, .jpeg"
-                            className="hidden" onChange={(e) => uploadImg(e)}/>
+                            <input required type="file" name="img2" accept=".png, .jpg, .jpeg" className="hidden"
+                            onChange={handleImage2} id="img2"/>
                             <label htmlFor="img3" className='relative aspect-[4/5] bg-[#e0d4d4] w-24
                             rounded-lg cursor-pointer border-2 border-[#E87C7C] border-dashed'>
                                 <FaTimesCircle size={18} className="bg-[#FFEAEA] text-[#ed3434]
                                 rotate-45 rounded-full absolute -bottom-1 -right-1" />
                             </label>
-                            <input {...register('img3')} required type="file" id="img3" accept=".png, .jpg, .jpeg"
-                            className="hidden" onChange={(e) => uploadImg(e)}/>
+                            <input required type="file" name="img3" accept=".png, .jpg, .jpeg" className="hidden"
+                            onChange={handleImage3} id="img3"/>
                             <label htmlFor="img4" className='relative aspect-[4/5] bg-[#e0d4d4] w-24
                             rounded-lg cursor-pointer border-2 border-[#E87C7C] border-dashed'>
                                 <FaTimesCircle size={18} className="bg-[#FFEAEA] text-[#ed3434]
                                 rotate-45 rounded-full absolute -bottom-1 -right-1" />
                             </label>
-                            <input {...register('img4')} required type="file" id="img4" accept=".png, .jpg, .jpeg"
-                            className="hidden" onChange={(e) => uploadImg(e)}/>
+                            <input required type="file" name="img4" accept=".png, .jpg, .jpeg" className="hidden"
+                            onChange={handleImage4} id="img4"/>
                         </div>
                         <small className='mt-2'>Se requieren 4 imágenes para crear el perfil.</small>
                         <div className='newUserFormDesc'>
                             <label htmlFor="description" className='text-sm font-bold text-[#ed3434] mt-2'>
                                 Descripción
                             </label>
-                            <textarea {...register('description')} required maxLength={500}
-                            placeholder="Cuéntanos un poco sobre tí" id="description"
-                            className='mt-2 bg-white/90 rounded-md p-2 w-72 sm:w-80 h-36 shadow-sm text-sm'/>
+                            <textarea required maxLength={500}
+                            placeholder="Cuéntanos un poco sobre tí" name="description"
+                            className='mt-2 bg-white/90 rounded-md p-2 w-72 sm:w-80 h-36 shadow-sm text-sm'
+                            onChange={getData}/>
                         </div>
                     </div>
                     <button type="submit" className='btnSubmit btnSubmitGradient textShadowSm btnTransition
@@ -220,3 +231,74 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
 }
 
 export default OnBoarding;
+
+/*     const handleImg1 = (e: ChangeEvent<HTMLInputElement>) => {
+        const target = e.target as HTMLInputElement
+        const file: File = (target.files as FileList)[0]
+        setFormData(file)
+    }
+
+    const handleImg2 = (e: ChangeEvent<HTMLInputElement>) => {
+        const target = e.target as HTMLInputElement
+        const file: File = (target.files as FileList)[0]
+        setFormData(file)
+    }
+
+    const handleImg3 = (e: ChangeEvent<HTMLInputElement>) => {
+        const target = e.target as HTMLInputElement
+        const file: File = (target.files as FileList)[0]
+        setFormData(file)
+    }
+
+    const handleImg4 = (e: ChangeEvent<HTMLInputElement>) => {
+        const target = e.target as HTMLInputElement
+        const file: File = (target.files as FileList)[0]
+        setFormData(file)
+    } */
+
+
+
+
+
+
+
+
+
+
+/*     const uploadImg = async (e: ChangeEvent<HTMLInputElement>) => {
+        const target = e.target as HTMLInputElement
+        const file: File = (target.files as FileList)[0]
+        const base64 = await convertImg(file)
+        const formData = new FormData()
+        formData.append("file", base64 as string | Blob)
+        console.log(formData)
+    }
+
+    const convertImg = (file: File) => {
+        return new Promise((resolve, reject) => {
+            const fileReader = new FileReader()
+            fileReader.readAsDataURL(file)
+            
+            fileReader.onload = () => {
+                resolve(fileReader.result)
+            }
+
+            fileReader.onerror = (error) => {
+                reject(error)
+            }
+        })
+    }
+
+    const uploadImgs = (e: ChangeEvent<HTMLInputElement>) => {
+        const formData = new FormData()
+        const target = e.target as HTMLInputElement
+        const file: File = (target.files as FileList)[0]
+        formData.append("file", file)
+        console.log(formData)
+    } */
+ 
+/*     const onSubmit = (data: any) => {
+        alert(`Form submit: ${JSON.stringify(data)}`)
+        reset()
+        setShowModalSuccess(true)
+    } */

@@ -1,28 +1,36 @@
-import { useForm } from 'react-hook-form';
 import { FaTimesCircle } from 'react-icons/fa';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
 
 type Props = {
     modalState: boolean
     setModalState: React.Dispatch<React.SetStateAction<boolean>>
-}
+};
 
-type FormData = {
+type FormType = {
     email: string
     password: string
-}
+};
 
 const Login = ({ modalState, setModalState }: Props) => {
-    const { register, handleSubmit, reset } = useForm<FormData>()
     const [activeClass, SetActiveClass] = useState<boolean>(false)
+    const [formData, setFormData] = useState<FormType>({
+        email: "",
+        password: "",
+    })
     const navigate = useNavigate()
 
-    const onSubmit = (data: any) => {
-        alert(`Form submit: ${JSON.stringify(data)}`)
-        reset()
-        navigate("feed")
+    const getData = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData(
+            { ...formData, [e.target.name]: e.target.value }
+        )
+    }
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+        console.log(formData)
+        navigate("/feed")
     }
 
     const handleClose = () => {
@@ -47,7 +55,7 @@ const Login = ({ modalState, setModalState }: Props) => {
                 transition-all hover:scale-105' onClick={() => handleClose()}>
                     <FaTimesCircle className="text-[2.15rem]" />
                 </button>
-                <form onSubmit={handleSubmit(onSubmit)} className="grid place-items-center">
+                <form onSubmit={handleSubmit} className="grid place-items-center">
                     <div className='grid place-items-center'>
                         <div className='flex justify-center gap-2'>
                         <p className='text-xl font-bold text-[#FFEAEA] imgShadow'>Login</p>
@@ -60,14 +68,14 @@ const Login = ({ modalState, setModalState }: Props) => {
                             <label htmlFor="email" className='font-bold text-[#ed3434]'>
                                 Correo electrónico
                             </label>
-                            <input {...register('email')} required placeholder="Tu email" id="email" type="email"
+                            <input required placeholder="Tu email" name="email" type="email" onChange={getData}
                             className='mt-2 bg-white/90 rounded-md p-3 shadow-sm w-[205px]'/>
                         </div>
                         <div className='flex flex-col items-center justify-center'>
                             <label htmlFor="password" className='font-bold text-[#ed3434]'>
                                 Contraseña
                             </label>
-                            <input {...register('password')} placeholder="Tu contraseña" id="password"
+                            <input placeholder="Tu contraseña" name="password" onChange={getData}
                             type="password" className='mt-2 bg-white/90 rounded-md p-3 shadow-sm w-[205px]'/>
                         </div>
                     </div>

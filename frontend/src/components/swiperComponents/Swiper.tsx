@@ -7,7 +7,7 @@ import { IoHeartCircleOutline } from 'react-icons/io5';
 
 type Props = {
     swiperSlides: Array<{url: string}>
-}
+};
 
 const Swiper = ({ swiperSlides }: Props) => {
     const [currentIndex, setCurrentIndex] = useState<number>(0)
