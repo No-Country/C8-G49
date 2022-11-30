@@ -17,3 +17,5 @@ export { default as UserSwiper } from './userComponents/UserSwiper';
 export { default as UserSwiperCard } from './userComponents/UserSwiperCard';
 export { default as UserSwiperDescription } from './userComponents/UserSwiperDescription';
 export { default as UserSideBar } from './userComponents/UserSideBar';
+export { default as UserEditModal } from './userComponents/UserEditModal';
+export { default as UserMobileNav } from './userComponents/UserMobileNav';

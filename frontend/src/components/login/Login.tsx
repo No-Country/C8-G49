@@ -75,7 +75,7 @@ const Login = ({ modalState, setModalState }: Props) => {
                             <label htmlFor="password" className='font-bold text-[#ed3434]'>
                                 Contraseña
                             </label>
-                            <input placeholder="Tu contraseña" name="password" onChange={getData}
+                            <input required placeholder="Tu contraseña" name="password" onChange={getData}
                             type="password" className='mt-2 bg-white/90 rounded-md p-3 shadow-sm w-[205px]'/>
                         </div>
                     </div>

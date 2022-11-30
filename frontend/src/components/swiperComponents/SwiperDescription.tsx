@@ -39,7 +39,8 @@ const SwiperDescription = ({ modalState, setModalState, setUiState }: Props) => 
                 </div>
             </div>
             <div className='grid place-items-center h-36 md:h-60 mt-14 md:mt-16 overflow-y-auto break-words
-            scrollbar-thin scrollbar-track-[#ed3434]/30 scrollbar-thumb-[#ed3434]/90 w-[90%] pr-6'>
+            scrollbar-thin scrollbar-track-[#ed3434]/30 scrollbar-thumb-[#ed3434]/90 w-[90%] pr-6
+            pl-[0.4rem] md:pl-0'>
                 <p className='text-sm font-medium'>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus libero, minus enim
                     quo hic eius ipsa error quae quibusdam velit architecto esse fuga! Laborum excepturi

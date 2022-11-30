@@ -1,17 +1,20 @@
 import { useState } from 'react';
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 import { FaMapMarkerAlt, FaUser } from 'react-icons/fa';
-import { UserSwiperDescription } from '../';
+import { UserEditModal, UserSwiperDescription } from '../';
 
 type Props = {
     userSwiperSlides: Array<{url: string}>
+    modalEditState: boolean
+    setModalEditState: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-const UserSwiper = ({ userSwiperSlides }: Props) => {
+const UserSwiper = ({ userSwiperSlides, modalEditState, setModalEditState }: Props) => {
     const [currentIndex, setCurrentIndex] = useState<number>(0)
     const [sliderBtnPressed, setSliderBtnPressed] = useState<boolean>(false)
     const [showModal, setShowModal] = useState<boolean>(false)
     const [showUi, setShowUi] = useState<boolean>(true)
+    const [showBtn, setShowBtn] = useState<boolean>(true)
 
     const prevSlide = () => {
         const firstSlide = currentIndex === 0
@@ -30,10 +33,27 @@ const UserSwiper = ({ userSwiperSlides }: Props) => {
     const handleSetShowModal = () => {
         setShowModal(true)
         setShowUi(false)
+        setShowBtn(false)
     }
+
+    const handleDescriptionBtn = () => {
+        setShowModal(true)
+        setShowBtn(false)
+    }
+
 
     return (
         <>
+        {showBtn ?
+        <button type="button" className="btnEditGradient textShadowSm btnTransition btnShadow
+        w-full py-[0.4rem] shadow-md font-bold tracking-wider text-[#FFEAEA] rounded-full"
+        onClick={() => setModalEditState(true)}>
+            Editar perfil
+        </button>
+        : <div className="bg-transparent w-full py-[0.4rem] font-bold text-transparent">
+            Editar perfil
+        </div>}
+        {!modalEditState ?
         <div className='flex flex-col items-center justify-center gap-4 relative mb-[0.3rem] md:mb-0'>
             <div className="relative flex flex-col items-center justify-center">
                 <div className='relative w-72 h-[22rem] md:h-[23rem] md:w-[25.5rem] cardShadow'>
@@ -89,12 +109,14 @@ const UserSwiper = ({ userSwiperSlides }: Props) => {
                 </p>
                 <button type='button' className='text-[#ed3434] textShadowSm font-bold px-4 py-1
                 rounded-2xl min-w-max gradientBg shadow-md shadow-black/10 btnTransition btnShadow'
-                onClick={() => setShowModal(true)}>
+                onClick={() => handleDescriptionBtn()}>
                     Ver más
                 </button>
             </div>
-            <UserSwiperDescription modalState={showModal} setModalState={setShowModal} setUiState={setShowUi} />
+            <UserSwiperDescription modalState={showModal} setModalState={setShowModal}
+            setUiState={setShowUi} setBtnState={setShowBtn} />
         </div>
+        : <UserEditModal modalState={modalEditState} setModalState={setModalEditState} />}
         </>
     )
 }

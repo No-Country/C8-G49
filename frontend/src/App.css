@@ -205,6 +205,12 @@ textarea {
 		filter: drop-shadow(0.15rem 0.15rem 0.1rem rgb(237, 52, 52, 0.75));
 	}
 
+	.btnUserPageGradient {
+		filter: drop-shadow(0.12rem 0.12rem 0.12rem rgba(0, 15, 84, 0.72));
+		background: rgb(35,70,227);
+		background: linear-gradient(180deg, rgba(35,70,227,1) 0%, rgba(29,55,193,1) 30%, rgb(8, 0, 126) 100%);
+	}
+
 	/*** utility clases ***/
 
 	.pageGradientBg {
@@ -230,6 +236,11 @@ textarea {
 	.btnSubmitGradient {
 		background: rgb(255,146,157);
 		background: linear-gradient(-180deg, rgba(255,146,157,1) 0%, rgba(237,52,52,1) 100%);
+	}
+	
+	.btnEditGradient{
+		background: rgb(255,146,157);
+		background: linear-gradient(-180deg, rgba(255,146,157,1) 0%, rgb(255, 99, 99) 25%, rgba(237,52,52,1) 100%);
 	}
 
 	.cardShadow {

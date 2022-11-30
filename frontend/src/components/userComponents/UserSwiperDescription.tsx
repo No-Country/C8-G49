@@ -5,14 +5,16 @@ type Props = {
     modalState: boolean
     setModalState: React.Dispatch<React.SetStateAction<boolean>>
     setUiState: React.Dispatch<React.SetStateAction<boolean>>
+    setBtnState: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-const UserSwiperDescription = ({ modalState, setModalState, setUiState }: Props) => {
+const UserSwiperDescription = ({ modalState, setModalState, setUiState, setBtnState }: Props) => {
     const [activeClass, SetActiveClass] = useState<boolean>(false)
 
     const handleClose = () => {
         SetActiveClass(true)
         setUiState(true)
+        setBtnState(true)
         setTimeout(() => {
             setModalState(false)
         }, 300)
@@ -39,7 +41,8 @@ const UserSwiperDescription = ({ modalState, setModalState, setUiState }: Props)
                 </div>
             </div>
             <div className='grid place-items-center h-36 md:h-60 mt-14 md:mt-16 overflow-y-auto break-words
-            scrollbar-thin scrollbar-track-[#ed3434]/30 scrollbar-thumb-[#ed3434]/90 w-[90%] pr-6'>
+            scrollbar-thin scrollbar-track-[#ed3434]/30 scrollbar-thumb-[#ed3434]/90 w-[90%] pr-6
+            pl-[0.4rem] md:pl-0'>
                 <p className='text-sm font-medium'>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus libero, minus enim
                     quo hic eius ipsa error quae quibusdam velit architecto esse fuga! Laborum excepturi

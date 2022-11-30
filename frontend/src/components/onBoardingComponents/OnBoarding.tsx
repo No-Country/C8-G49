@@ -72,6 +72,7 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         console.log(formData, img1, img2, img3, img4)
+        setShowModalSuccess(true)
     }
 
     const handleClose = () => {
@@ -132,7 +133,7 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                             </div>
                             <div className='flex flex-col items-start justify-center'>
                                 <label htmlFor="genderInterest" className='text-sm font-bold text-[#ed3434]'>
-                                    Me interesan
+                                    Me Interesan
                                 </label>
                                 <select required name="genderInterest" className='mt-2 bg-white/90 rounded-md p-2
                                 shadow-sm w-[205px] text-sm' defaultValue="default"
@@ -147,7 +148,7 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                         <div className='newUserFormEmailPassword'>
                             <div className='flex flex-col items-start justify-center mt-1'>
                                 <label htmlFor="email" className='text-sm font-bold text-[#ed3434]'>
-                                    Correo electrónico
+                                    Correo Electrónico
                                 </label>
                                 <input required placeholder="Tu email" name="email" type="email"
                                 className='mt-2 bg-white/90 rounded-md p-2 shadow-sm w-[205px] text-sm'
@@ -163,7 +164,7 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                             </div>
                             <div className='flex flex-col items-start justify-center'>
                                 <label htmlFor="confirmPassword" className='text-sm font-bold text-[#ed3434]'>
-                                    Confimar contraseña
+                                    Confimar Contraseña
                                 </label>
                                 <input required placeholder="Confirma tu contraseña" name="confirmPassword"
                                 type="password" className='mt-2 bg-white/90 rounded-md p-2 shadow-sm
@@ -173,7 +174,7 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                         </div>
                     </div>
                     <div className="newUserFormContainer2">
-                        <p className="text-sm font-bold text-[#ed3434]">Fotos del perfil</p>
+                        <p className="text-sm font-bold text-[#ed3434]">Fotos Del Perfil</p>
                         <div className="newUserFormImages">
                             <label htmlFor="img1" className='relative aspect-[4/5] bg-[#e0d4d4] w-24
                             rounded-lg cursor-pointer border-2 border-[#E87C7C] border-dashed'>
@@ -211,12 +212,13 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                             </label>
                             <textarea required maxLength={500}
                             placeholder="Cuéntanos un poco sobre tí" name="description"
-                            className='mt-2 bg-white/90 rounded-md p-2 w-72 sm:w-80 h-36 shadow-sm text-sm'
+                            className='mt-2 bg-white/90 rounded-md p-2 w-72 sm:w-80 h-36 shadow-sm text-sm
+                            scrollbar-thin scrollbar-track-[#ed3434]/30 scrollbar-thumb-[#ed3434]/90'
                             onChange={getData}/>
                         </div>
                     </div>
-                    <button type="submit" className='btnSubmit btnSubmitGradient textShadowSm btnTransition
-                    btnShadow shadow-md font-bold tracking-wider absolute text-[#FFEAEA] rounded-full px-6 py-2'>
+                    <button type="submit" className='btnSubmit btnSubmitGradient textShadowSm btnTransition py-2
+                    btnShadow shadow-md font-bold tracking-wider absolute text-[#FFEAEA] rounded-full px-6'>
                         Continuar
                     </button>
                 </form>
@@ -231,39 +233,6 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
 }
 
 export default OnBoarding;
-
-/*     const handleImg1 = (e: ChangeEvent<HTMLInputElement>) => {
-        const target = e.target as HTMLInputElement
-        const file: File = (target.files as FileList)[0]
-        setFormData(file)
-    }
-
-    const handleImg2 = (e: ChangeEvent<HTMLInputElement>) => {
-        const target = e.target as HTMLInputElement
-        const file: File = (target.files as FileList)[0]
-        setFormData(file)
-    }
-
-    const handleImg3 = (e: ChangeEvent<HTMLInputElement>) => {
-        const target = e.target as HTMLInputElement
-        const file: File = (target.files as FileList)[0]
-        setFormData(file)
-    }
-
-    const handleImg4 = (e: ChangeEvent<HTMLInputElement>) => {
-        const target = e.target as HTMLInputElement
-        const file: File = (target.files as FileList)[0]
-        setFormData(file)
-    } */
-
-
-
-
-
-
-
-
-
 
 /*     const uploadImg = async (e: ChangeEvent<HTMLInputElement>) => {
         const target = e.target as HTMLInputElement
@@ -287,18 +256,4 @@ export default OnBoarding;
                 reject(error)
             }
         })
-    }
-
-    const uploadImgs = (e: ChangeEvent<HTMLInputElement>) => {
-        const formData = new FormData()
-        const target = e.target as HTMLInputElement
-        const file: File = (target.files as FileList)[0]
-        formData.append("file", file)
-        console.log(formData)
-    } */
- 
-/*     const onSubmit = (data: any) => {
-        alert(`Form submit: ${JSON.stringify(data)}`)
-        reset()
-        setShowModalSuccess(true)
-    } */
+    }*/

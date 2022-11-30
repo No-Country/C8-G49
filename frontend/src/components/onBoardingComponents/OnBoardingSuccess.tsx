@@ -36,7 +36,7 @@ const OnBoardingSuccess = ({ modalState, modalSuccess, setModalState, setModalSu
                     </div>
                     <div className="mt-7">
                     <Link to="feed">
-                        <button type="button" className="btnSubmitGradient uppercase btnSubmit textShadowSm
+                        <button type="button" className="btnSubmitGradient uppercase textShadowSm
                         btnTransition flex justify-center items-center btnShadow shadow-md font-bold
                         tracking-wider gap-2 text-[#FFEAEA] rounded-full px-6 py-2"
                         onClick={() => handleClose()}>
