@@ -33,11 +33,13 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                     },
                 },
             );
-    
+            
             if (response.status === 200) {
+                
                 console.log(response.data)
                 reset()
-        setShowModalSuccess(true)
+                setShowModalSuccess(true)
+        
             }
         } catch (e) {
             console.error(e)
