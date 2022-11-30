@@ -16,14 +16,14 @@ const router = createBrowserRouter([
                 }, */
             },
             {
-                path: "feed",
+                path: "/feed",
                 element: <Feed/>
                 /* loader: async ({ params }) => {
                     return fetch(`/api/teams/${params.teamId}.json`)
                 }, */
             },
             {
-                path: "feed/user",
+                path: "/user",
                 element: <UserPage />
             },
         ],
