@@ -2,10 +2,13 @@ import express from "express"
 import serverless from 'serverless-http'
 import cors from "cors"
 import userRoutes from "./routes/userRoutes.js"
+import matchRoutes from './routes/matchRoutes.js'
 import db from "./database/db.js"
+import { PORT } from "./config.js"
 const app = express()
 
 app.use("/", userRoutes)
+app.use("/", matchRoutes)
 
 /* app.use("/registrarme",blogRegister) */
 
@@ -23,9 +26,9 @@ try {
 
 
 
-const port = 8000
-app.listen(port, () => {
-    console.log(`Servidor ok en el puerto ${port}`)
+
+app.listen(PORT, () => {
+    console.log(`Servidor ok en el puerto ${PORT}`)
 })
 
 export default serverless(app)

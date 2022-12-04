@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
 import axios from 'axios'
+
+//http://localhost:8000/validateUser
+
 type Props = {
     modalState: boolean
     setModalState: React.Dispatch<React.SetStateAction<boolean>>
@@ -12,7 +15,9 @@ type FormType = {
     email: string
     password: string
 };
-
+type FormData =  {
+    user: any
+  }
 const Login = ({ modalState, setModalState }: Props) => {
     const [activeClass, SetActiveClass] = useState<boolean>(false)
     const [formData, setFormData] = useState<FormType>({
@@ -26,32 +31,32 @@ const Login = ({ modalState, setModalState }: Props) => {
             { ...formData, [e.target.name]: e.target.value }
         )
     }
-    // const validateUser = async (dataToSend: any) => {
-    //     try {
-    //         const response = await axios.post<FormData>(
-    //             'http://localhost:8000/validateUser',
-    //             dataToSend,
-    //             {
-    //                 headers: {
-    //                     'Content-Type': 'application/json',
-    //                     Accept: 'application/json',
-    //                 },
-    //             },
-    //         );
+    const validateUser = async (dataToSend: any) => {
+        try {
+            const response = await axios.post<FormData>(
+                'https://backend-matcher-production.up.railway.app/validateUser',
+                dataToSend,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Accept: 'application/json',
+                    },
+                },
+            );
     
-    //         if (response.status === 200) {
-    //             console.log(response.data)
-    //             reset()
-    //             navigate("feed")
-    //         }
-    //     } catch (e) {
-    //         console.error(e)
-    //     }
-    // }
+            if (response.status === 200) {
+                console.log(response.data)
+                localStorage.setItem("userLoged", JSON.stringify(response.data.user))
+                navigate("/feed")
+            }
+        } catch (e) {
+            console.error(e)
+        }
+    }
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        console.log(formData)
-        navigate("/feed")
+        validateUser(formData)
+        
     }
 
     const handleClose = () => {

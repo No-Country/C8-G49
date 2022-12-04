@@ -76,27 +76,28 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
     }
     const createUser = async (dataToSend: any, imagenes:any) => {
         let dattaUser = dataToSend
+        dattaUser.imagenes = imagenes
 
-        dattaUser.img1 = imagenes.img1
-        dattaUser.img2 = imagenes.img2
-        dattaUser.img3 = imagenes.img3
-        dattaUser.img4 = imagenes.img4
-
-        console.log(dattaUser)
         try {
             const response = await axios.post<FormData>(
                 'https://backend-matcher-production.up.railway.app/createUser',
                 dataToSend,
                 {
                     headers: {
-                        'Content-Type': 'application/json',
-                        Accept: 'application/json',
+                        'Content-Type': 'multipart/form-data',
+                        
                     },
                 },
             );
             
             if (response.status === 200) {
-                
+
+                let userToSave = {
+                    name: dataToSend.name,
+                    age: dataToSend.age,
+                    genderInterest: dataToSend.genderInterest
+                }
+                localStorage.setItem("user", JSON.stringify(userToSave))
                 console.log(response.data)
                 setShowModalSuccess(true)
         
@@ -114,8 +115,6 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
         img4: img4, 
     }
         createUser(formData, imagenes)
-        
-        setShowModalSuccess(true)
     }
 
     const handleClose = () => {
