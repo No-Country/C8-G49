@@ -1,11 +1,15 @@
-import { SideBar, UserSwiperCard, FullScreenLoader, UserMobileNav, MobileFooter } from '../components';
+import {
+    SideBar,
+    UserSideBar,
+    UserSwiperCard,
+    FullScreenLoader,
+    UserMobileNav,
+    UserMobileFooter
+} from '../components';
 import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
-import { FaRedoAlt } from 'react-icons/fa';
 
 const UserPage = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true)
-    const navigate = useNavigate()
 
     useEffect(() => {
         setTimeout(() => {
@@ -26,17 +30,11 @@ const UserPage = () => {
                     <UserMobileNav/>
                 </div>
                 <UserSwiperCard />
-                <div className="sideBarContainer md:block hidden">
-                    <div className="text-[#FFEAEA] grid place-items-center rounded-full py-3 gap-1 w-[4.6rem]
-                    cursor-pointer btnUserPageGradient transition-transform hover:scale-[1.025]">
-                        <FaRedoAlt className='-scale-x-100 -rotate-6 text-2xl'/>
-                        <button type='button' onClick={() => navigate("/feed")}>
-                            <p className='text-center font-semibold text-sm'>Feed</p>
-                        </button>
-                    </div>
+                <div className="sideBarContainer md:block hidden bg-[#FF929D]">
+                    <UserSideBar />
                 </div>
                 <div className='md:hidden block'>
-                    <MobileFooter/>
+                    <UserMobileFooter/>
                 </div>
             </div>
         </div>}

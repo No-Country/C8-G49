@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
-import { FaMapMarkerAlt, FaUser } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
 import { SwiperDescription } from '../';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { IoHeartCircleOutline } from 'react-icons/io5';
 
 type Props = {
     swiperSlides: Array<{url: string}>
+    cardState: boolean
+    setCardState: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-const Swiper = ({ swiperSlides }: Props) => {
+const Swiper = ({ swiperSlides, cardState, setCardState }: Props) => {
     const [currentIndex, setCurrentIndex] = useState<number>(0)
     const [sliderBtnPressed, setSliderBtnPressed] = useState<boolean>(false)
     const [showModal, setShowModal] = useState<boolean>(false)
@@ -51,24 +53,19 @@ const Swiper = ({ swiperSlides }: Props) => {
         <div style={{backgroundImage: `url(${swiperSlides[currentIndex].url})`}} className="bg-cover bg-center
         bg-no-repeat absolute top-0 left-0 h-full w-full rounded-2xl" />
         {showUi ?
-        <div className="absolute bottom-32 left-1/2 -translate-x-1/2 justify-between items-center
-        gap-48 md:gap-[18.5rem] flex">
+        <div className="absolute bottom-40 md:bottom-44 left-1/2 -translate-x-1/2 justify-between items-center
+        gap-48 md:gap-60 flex">
             <HiOutlineChevronLeft size={40} className="cursor-pointer text-white/70 hover:text-white
             transition-colors noSelect" onClick={prevSlide} />
             <HiOutlineChevronRight size={40} className="cursor-pointer text-white/70 hover:text-white
             transition-colors noSelect" onClick={nextSlide} />
         </div> : null}
         {!sliderBtnPressed ? (
-            (<div className="absolute top-6 left-[33.5%] md:left-[28.5%] -translate-x-1/2 text-white">
+            (<div className="absolute top-7 left-24 md:left-28 -translate-x-1/2 text-white">
                 <div className="swiperInfoContainer w-full flex flex-col items-start gap-[0.15rem]
                 md:gap-1 noSelect">
                     <h1 className='textShadow font-extrabold text-xl md:text-2xl'>Ayelen Vargas</h1>
                     <h3 className='textShadow font-extrabold text-lg md:text-xl'>24 años</h3>
-                    <div className="flex gap-1 items-center justify-center">
-                        <FaMapMarkerAlt className='iconShadow' size={19} />
-                        <p className='textShadow font-semibold text-base md:text-lg'>San Antonio</p>
-                    </div>
-                    <p className='textShadow font-medium text-sm'>Estudiante de Turismo</p>
                 </div>
                 <button type='button' className='text-[#ed3434] textShadowSm font-bold p-[0.45rem]
                 absolute top-1 rounded-full gradientBg shadow-md shadow-black/10 -right-24
@@ -83,11 +80,11 @@ const Swiper = ({ swiperSlides }: Props) => {
             <div className="flex gap-20 md:gap-32 justify-center items-center">
                 <button type='button' className='iconShadow text-[#FFEAEA] hover:text-[#1F9AFF]
                 hover:scale-110 transition-all duration-200 ease-linear noSelect'>
-                    <RiCloseCircleLine size={80} />
+                    <RiCloseCircleLine size={80} onClick={() => setCardState(false)} />
                 </button>
                 <button type='button' className='iconShadow text-[#ed3434] hover:text-[#72E52D]
                 hover:scale-110 transition-all duration-200 ease-linear noSelect'>
-                    <IoHeartCircleOutline size={80} />
+                    <IoHeartCircleOutline size={80} onClick={() => setCardState(false)} />
                 </button>
             </div>
         </div> : null}
