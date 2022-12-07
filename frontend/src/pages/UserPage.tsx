@@ -9,6 +9,7 @@ import {
 import { useState, useEffect } from "react";
 
 const UserPage = () => {
+    const [userLoged, setUserLoged] = useState(JSON.parse(localStorage.getItem("userLoged")|| '{}'))
     const [isLoading, setIsLoading] = useState<boolean>(true)
 
     useEffect(() => {
@@ -24,7 +25,7 @@ const UserPage = () => {
             <div className="pageGradientBg h-screen w-full flex flex-col md:flex-row justify-center
             md:justify-between items-center relative">
                 <div className="sideBarContainer md:block hidden">
-                    <SideBar />
+                    <SideBar userLoged={userLoged}/>
                 </div>
                 <div className='md:hidden block absolute top-0 w-screen'>
                     <UserMobileNav/>

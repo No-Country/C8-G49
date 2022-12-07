@@ -39,7 +39,7 @@ const Swiper = ({ swiperSlides, setCardState, setActiveClassState,user,indice }:
         setShowModal(true)
         setShowUi(false)
     }
-
+    
     const handleClose = () => {
         setActiveClassState(true)
         setTimeout(() => {

@@ -1,6 +1,11 @@
 import { FaTimesCircle } from 'react-icons/fa';
 import React, { useState } from 'react';
 import { OnBoardingSuccess } from '../';
+import axios from 'axios'
+
+//endpoint crearUsuario
+//http://localhost:8000/createUser
+//https://backend-matcher-production.up.railway.app/createUser
 
 type Props = {
     modalState: boolean
@@ -8,28 +13,29 @@ type Props = {
 };
   
 type FormType = {
-    username: string
+    name: string
     age: number
     gender: string
     genderInterest: string
     email: string
     password: string
     confirmPassword: string
-    description: string
+    description: string,
 };
+
 
 const OnBoarding = ({ modalState, setModalState }: Props) => {
     const [activeClass, SetActiveClass] = useState<boolean>(false)
     const [showModalSuccess, setShowModalSuccess] = useState<boolean>(false)
     const [formData, setFormData] = useState<FormType>({
-        username: "",
+        name: "",
         age: 18,
         gender: "",
         genderInterest: "",
         email: "",
         password: "",
         confirmPassword: "",
-        description: "",
+        description: ""
     })
     const [img1, setImg1] = useState<File>(new File([], "", {}))
     const [img2, setImg2] = useState<File>(new File([], "", {}))
@@ -68,11 +74,47 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
         const file = (target.files as FileList)[0]
         setImg4(file)
     }
+    const createUser = async (dataToSend: any, imagenes:any) => {
+        let dattaUser = dataToSend
+        dattaUser.imagenes = imagenes
 
+        try {
+            const response = await axios.post<FormData>(
+                'https://backend-matcher-production.up.railway.app/createUser',
+                dataToSend,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        
+                    },
+                },
+            );
+            
+            if (response.status === 200) {
+
+                let userToSave = {
+                    name: dataToSend.name,
+                    age: dataToSend.age,
+                    genderInterest: dataToSend.genderInterest
+                }
+                localStorage.setItem("user", JSON.stringify(userToSave))
+                console.log(response.data)
+                setShowModalSuccess(true)
+        
+            }
+        } catch (e) {
+            console.error(e)
+        }
+    }
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        console.log(formData, img1, img2, img3, img4)
-        setShowModalSuccess(true)
+    let imagenes = {
+        img1: img1,
+        img2: img2, 
+        img3: img3, 
+        img4: img4, 
+    }
+        createUser(formData, imagenes)
     }
 
     const handleClose = () => {
@@ -104,7 +146,7 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                                 <label htmlFor="name" className='text-sm font-bold text-[#ed3434]'>
                                     Nombre Completo
                                 </label>
-                                <input required placeholder="Tu nombre" name="userName" type="text"
+                                <input required placeholder="Tu nombre" name="name" type="text"
                                 className='mt-2 bg-white/90 rounded-md p-2 shadow-sm w-[205px] text-sm'
                                 onChange={getData}/>
                             </div>
