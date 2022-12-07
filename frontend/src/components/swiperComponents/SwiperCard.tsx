@@ -1,8 +1,11 @@
 import { SwiperMatcher, SwiperDescription } from '../';
 import { useEffect, useState } from 'react';
 import shortenText from '../../utils/shortenText';
-
-const SwiperCard = () => {
+type Props={
+    user:any
+    indice:number
+}
+const SwiperCard = ({user,indice}:Props) => {
     const [activeClass, SetActiveClass] = useState<boolean>(false)
     const [showCard, setShowCard] = useState<boolean>(true)
     const [showModal, setShowModal] = useState<boolean>(false)
@@ -34,7 +37,7 @@ const SwiperCard = () => {
                     Ver más
                 </button>
             </div>
-            <SwiperDescription modalState={showModal} setModalState={setShowModal} setUiState={setShowUi} />
+            <SwiperDescription modalState={showModal} setModalState={setShowModal} setUiState={setShowUi} user={user} />
         </div>
         : null }
         </>

@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/No-Country/C8-G49/issues"
   },
-  "homepage": "https://github.com/No-Country/C8-G49#readme"
+  "homepage": "https://github.com/No-Country/C8-G49#readme",
+  "dependencies": {
+    "axios": "^1.2.1"
+  }
 }
