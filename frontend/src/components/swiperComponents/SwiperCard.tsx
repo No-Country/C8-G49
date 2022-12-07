@@ -22,7 +22,7 @@ const SwiperCard = ({user,indice}:Props) => {
         {showCard ?
         <div className={activeClass ? "swiperCard fadeInCard active" : "swiperCard fadeInCard"}>
             <div className="relative flex flex-col items-center justify-center">
-                <SwiperMatcher setCardState={setShowCard} setActiveClassState={SetActiveClass} />
+                <SwiperMatcher user={user} indice={indice} setCardState={setShowCard} setActiveClassState={SetActiveClass} />
             </div>
             <div className="w-[22rem] h-[104px] bg-[#FFEAEA] rounded-lg hidden md:flex justify-between
             items-end gap-2 p-3 shadow-sm hover:shadow-md">

@@ -4,14 +4,18 @@ import { FaUser } from 'react-icons/fa';
 import { SwiperDescription } from '../';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { IoHeartCircleOutline } from 'react-icons/io5';
+import axios from "axios"
 
 type Props = {
     swiperSlides: Array<{url: string}>
     setCardState: React.Dispatch<React.SetStateAction<boolean>>
     setActiveClassState: React.Dispatch<React.SetStateAction<boolean>>
+    user: any
+    indice:number
 };
 
-const Swiper = ({ swiperSlides, setCardState, setActiveClassState }: Props) => {
+const Swiper = ({ swiperSlides, setCardState, setActiveClassState,user,indice }: Props) => {
+    const [userLoged, ] = useState(JSON.parse(localStorage.getItem("userLoged")|| '{}'))
     const [currentIndex, setCurrentIndex] = useState<number>(0)
     const [sliderBtnPressed, setSliderBtnPressed] = useState<boolean>(false)
     const [showModal, setShowModal] = useState<boolean>(false)
@@ -43,6 +47,34 @@ const Swiper = ({ swiperSlides, setCardState, setActiveClassState }: Props) => {
         }, 1000)
     }
     
+    const matchToUser = async(dataToSend:any, userId:number)=>{
+        try {
+            const response = await axios.post<FormData>(
+                'https://backend-matcher-production.up.railway.app/createMatch',dataToSend);
+            
+            if (response.status === 200) {
+                //aca deberia de haber un codigo para ocultar la card
+                console.log(response.data)
+            }
+        } catch (e) {
+            console.error(e)
+        }
+    
+    }
+
+    const matchear = (matchear: boolean, indice:number, userId: number)=>{
+        if(matchear){
+            // alert(`${userLoged.id} likeo a ${userId}. Card: ${indice}`)
+            let dataToSend = {
+                id_user_matchA: userLoged.id,
+                id_user_matchB: userId
+            }
+            matchToUser(dataToSend, userId)
+            
+        }
+        document.querySelectorAll(".card-user")[indice].classList.add(`-z-${indice}`)
+    }
+
     return (
         <>
         {showUi ?
@@ -71,8 +103,8 @@ const Swiper = ({ swiperSlides, setCardState, setActiveClassState }: Props) => {
             (<div className="absolute top-7 left-24 md:left-28 -translate-x-1/2 text-white">
                 <div className="swiperInfoContainer w-full flex flex-col items-start gap-[0.15rem]
                 md:gap-1 noSelect">
-                    <h1 className='textShadow font-extrabold text-xl md:text-2xl'>Ayelen Vargas</h1>
-                    <h3 className='textShadow font-extrabold text-lg md:text-xl'>24 años</h3>
+                    <h1 className='textShadow font-extrabold text-xl md:text-2xl'>{user.name}</h1>
+                    <h3 className='textShadow font-extrabold text-lg md:text-xl'>{user.age} años</h3>
                 </div>
                 <button type='button' className='text-[#ed3434] textShadowSm font-bold p-[0.45rem]
                 absolute top-1 rounded-full gradientBg shadow-md shadow-black/10 -right-24
@@ -81,7 +113,7 @@ const Swiper = ({ swiperSlides, setCardState, setActiveClassState }: Props) => {
                 </button>
             </div>))
         : null}
-        <SwiperDescription modalState={showModal} setModalState={setShowModal} setUiState={setShowUi}/>
+        <SwiperDescription modalState={showModal} setModalState={setShowModal} setUiState={setShowUi} user={user} />
         {showUi ?
         <div className="absolute bottom-2 md:bottom-4 translate-x-1/2 right-1/2">
             <div className="flex gap-20 md:gap-32 justify-center items-center">
