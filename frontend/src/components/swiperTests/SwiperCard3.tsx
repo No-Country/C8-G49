@@ -1,21 +1,17 @@
 import { SwiperMatcher, SwiperDescription } from '../';
 import { useState } from 'react';
 
-type Props = {
-    cardState: boolean
-    setCardState: React.Dispatch<React.SetStateAction<boolean>>
-};
-
-const SwiperCard3 = ({ cardState, setCardState }: Props) => {    
+const SwiperCard3 = () => {
+    const [showCard, setShowCard] = useState<boolean>(true)
     const [showModal, setShowModal] = useState<boolean>(false)
     const [, setShowUi] = useState<boolean>(true)
         
     return (
         <>
-        { cardState ?
+        {showCard ?
         <div className='swiperCard'>
             <div className="relative flex flex-col items-center justify-center">
-                <SwiperMatcher cardState={cardState} setCardState={setCardState} />
+                <SwiperMatcher setCardState={setShowCard} />
             </div>
             <div className="w-[22rem] h-[104px] bg-[#FFEAEA] rounded-lg hidden md:flex justify-between
             items-end gap-2 p-3 shadow-sm hover:shadow-md">

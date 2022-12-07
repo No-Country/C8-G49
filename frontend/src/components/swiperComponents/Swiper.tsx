@@ -7,11 +7,10 @@ import { IoHeartCircleOutline } from 'react-icons/io5';
 
 type Props = {
     swiperSlides: Array<{url: string}>
-    cardState: boolean
     setCardState: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-const Swiper = ({ swiperSlides, cardState, setCardState }: Props) => {
+const Swiper = ({ swiperSlides, setCardState }: Props) => {
     const [currentIndex, setCurrentIndex] = useState<number>(0)
     const [sliderBtnPressed, setSliderBtnPressed] = useState<boolean>(false)
     const [showModal, setShowModal] = useState<boolean>(false)
