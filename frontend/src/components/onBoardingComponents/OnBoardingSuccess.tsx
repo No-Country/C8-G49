@@ -9,7 +9,12 @@ type Props = {
     setModalSuccess: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-const OnBoardingSuccess = ({ modalState, modalSuccess, setModalState, setModalSuccess }: Props) => {
+const OnBoardingSuccess = ({
+    modalState,
+    modalSuccess,
+    setModalState,
+    setModalSuccess
+}: Props) => {
     const handleClose = () => {
         setModalSuccess(false)
         setModalState(false)

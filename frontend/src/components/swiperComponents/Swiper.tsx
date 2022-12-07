@@ -8,9 +8,10 @@ import { IoHeartCircleOutline } from 'react-icons/io5';
 type Props = {
     swiperSlides: Array<{url: string}>
     setCardState: React.Dispatch<React.SetStateAction<boolean>>
+    setActiveClassState: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-const Swiper = ({ swiperSlides, setCardState }: Props) => {
+const Swiper = ({ swiperSlides, setCardState, setActiveClassState }: Props) => {
     const [currentIndex, setCurrentIndex] = useState<number>(0)
     const [sliderBtnPressed, setSliderBtnPressed] = useState<boolean>(false)
     const [showModal, setShowModal] = useState<boolean>(false)
@@ -35,6 +36,13 @@ const Swiper = ({ swiperSlides, setCardState }: Props) => {
         setShowUi(false)
     }
 
+    const handleClose = () => {
+        setActiveClassState(true)
+        setTimeout(() => {
+            setCardState(false)
+        }, 1000)
+    }
+    
     return (
         <>
         {showUi ?
@@ -79,11 +87,11 @@ const Swiper = ({ swiperSlides, setCardState }: Props) => {
             <div className="flex gap-20 md:gap-32 justify-center items-center">
                 <button type='button' className='iconShadow text-[#FFEAEA] hover:text-[#1F9AFF]
                 hover:scale-110 transition-all duration-200 ease-linear noSelect'>
-                    <RiCloseCircleLine size={80} onClick={() => setCardState(false)} />
+                    <RiCloseCircleLine size={80} onClick={() => handleClose()} />
                 </button>
                 <button type='button' className='iconShadow text-[#ed3434] hover:text-[#72E52D]
                 hover:scale-110 transition-all duration-200 ease-linear noSelect'>
-                    <IoHeartCircleOutline size={80} onClick={() => setCardState(false)} />
+                    <IoHeartCircleOutline size={80} onClick={() => handleClose()} />
                 </button>
             </div>
         </div> : null}

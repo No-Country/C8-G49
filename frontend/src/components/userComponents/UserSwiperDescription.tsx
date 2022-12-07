@@ -8,7 +8,12 @@ type Props = {
     setBtnState: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-const UserSwiperDescription = ({ modalState, setModalState, setUiState, setBtnState }: Props) => {
+const UserSwiperDescription = ({
+    modalState,
+    setModalState,
+    setUiState,
+    setBtnState
+}: Props) => {
     const [activeClass, SetActiveClass] = useState<boolean>(false)
 
     const handleClose = () => {

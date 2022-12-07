@@ -8,7 +8,12 @@ type Props = {
     setMessagesState: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-const MatchesAndChats = ({messagesState, matchesState, setMatchesState, setMessagesState}: Props) => {
+const MatchesAndChats = ({
+    messagesState,
+    matchesState,
+    setMatchesState,
+    setMessagesState
+}: Props) => {
     const handleMatches = () => {
         setMatchesState(true)
         setMessagesState(false)

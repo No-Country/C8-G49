@@ -31,7 +31,7 @@ const Feed = () => {
                 <div className='md:hidden block'>
                     <MobileFooter />
                 </div>
-                <div className="swiperContainer flex flex-col items-center justify-center relative transition-all duration-1000">
+                <div className="swiperContainer flex flex-col items-center justify-center relative">
                     <NoMoreMatches />
                     <SwiperCard />
                     <SwiperCard2 />

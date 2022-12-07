@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 import { FaUser } from 'react-icons/fa';
 import { UserEditModal, UserSwiperDescription } from '../';
+import shortenText from '../../utils/shortenText';
 
 type Props = {
     userSwiperSlides: Array<{url: string}>
@@ -104,8 +105,9 @@ const UserSwiper = ({ userSwiperSlides, modalEditState, setModalEditState }: Pro
             <div className="w-80 bg-[#FFEAEA] rounded-lg hidden md:flex justify-center items-end gap-2 p-3
             shadow-sm hover:shadow-md">
                 <p className='text-sm font-medium'>
-                    Lorem ipsum dolor sit amet consectet ura, adipisicing elit. Perspiasd deleniti 
-                    expedita laudantium...
+                {shortenText(/* llamar a descripcion de usuario en vez de a un string */
+                `Lorem ipsum dolor sit amet consectet ura, adipisicing elit. Perspiasd deleniti 
+                expedita laudantium`, 100)}
                 </p>
                 <button type='button' className='text-[#ed3434] textShadowSm font-bold px-4 py-1
                 rounded-2xl min-w-max gradientBg shadow-md shadow-black/10 btnTransition btnShadow'

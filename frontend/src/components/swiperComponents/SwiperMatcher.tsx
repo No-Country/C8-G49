@@ -2,9 +2,10 @@ import { Swiper } from '../';
 
 type Props = {
     setCardState: React.Dispatch<React.SetStateAction<boolean>>
+    setActiveClassState: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-const SwiperMatcher = ({setCardState}: Props) => {
+const SwiperMatcher = ({ setCardState, setActiveClassState }: Props) => {
     const swiperSlides = [
         {url: "https://i.ibb.co/k1F61YG/card-profile.png"},
         {url: "https://i.ibb.co/pZrkmwQ/sina-rezakhani-XES0z8w0-Ugc-unsplash.jpg"},
@@ -14,7 +15,11 @@ const SwiperMatcher = ({setCardState}: Props) => {
 
     return (
     <div className='relative w-[18.25rem] md:w-[22rem] aspect-[4/5] cardShadow'>
-        <Swiper swiperSlides={swiperSlides} setCardState={setCardState} />
+        <Swiper
+            swiperSlides={swiperSlides}
+            setCardState={setCardState}
+            setActiveClassState={setActiveClassState}
+        />
     </div>
     )
 }

@@ -83,6 +83,11 @@ textarea {
 		border-[#ed3434]/60 mt-8 rounded-lg overflow-y-auto overflow-x-hidden scrollbar-thin
 		scrollbar-track-[#ed3434]/30 scrollbar-thumb-[#ed3434]/90
 	}
+
+	.noMoreMatchesContainer {
+		@apply absolute flex flex-col items-center justify-center gap-4 md:gap-6 md:-top-[17.5rem]
+        bg-[#FFEAEA] w-[18.25rem] md:w-[22rem] aspect-[4/5] cardShadow rounded-2xl px-12
+	}
 	
 	/*** component clases ***/
 
@@ -495,10 +500,6 @@ textarea {
 		animation: fadeOutTop 250ms linear forwards;
 	}
 	
-	.swiperInfoContainer {
-		animation: fadeOpacity 1.5s linear forwards;
-	}
-
 	.fadeInLeftModal {
 		animation: fadeInLeft 250ms linear forwards;
 	}
@@ -507,18 +508,22 @@ textarea {
 		animation: fadeOutLeft 250ms linear forwards;
 	}
 
+	.fadeInCard {
+		animation: fadeInCard 1000ms linear forwards;
+	}
+
+	.fadeInCard.active {
+		animation: fadeOutCard 1000ms linear forwards;
+	}
+
+	.swiperInfoContainer {
+		animation: fadeOpacity 1.5s linear forwards;
+	}
+
 	.loadingLogo {
 		animation: scaleUpAndDown 750ms linear infinite;
 	}
 
-	.fadeInEditModal {
-		animation: fadeInTopEditModal 250ms linear forwards;
-	}
-
-	.fadeInEditModal.active {
-		animation: fadeOutTopEditModal 250ms linear forwards;
-	}
-	
 	@keyframes scaleUpAndDown { 
 		0% {
 			scale: 1;
@@ -572,7 +577,7 @@ textarea {
 			opacity: 1;
 		}
 		50% {
-			opacity: 1;
+			opacity: 0.85;
 		}
 		100% {
 			opacity: 0.7;
@@ -606,6 +611,30 @@ textarea {
 		100% {
 			opacity: 0;
 			left: -50px;
+		}
+	}
+
+	@keyframes fadeInCard {
+		0% {
+			opacity: 0;
+		}
+		50% {
+			opacity: 0.5;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes fadeOutCard {
+		0% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.25;
+		}
+		100% {
+			opacity: 0;
 		}
 	}
 }
