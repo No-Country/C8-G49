@@ -26,7 +26,9 @@ const SideBar = () => {
         <>
         <div className='flex flex-col items-center justify-center py-10 bg-[#FF929D] h-screen'>
             <div className="flex flex-col gap-16 items-center">
-                <img src={logo} alt="Matcher logo" className='w-20 block' loading='lazy' />
+                <div className='w-20'>
+                    <img src={logo} alt="Matcher logo" className='w-full block' loading='lazy' />
+                </div>
                 <Link to="/user">
                     <div className="sideBarBox flex flex-col items-center justify-center mt-10">
                         <div className="p-[0.3rem] bg-[#ed3434] transition-colors rounded-full">

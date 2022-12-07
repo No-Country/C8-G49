@@ -28,7 +28,7 @@ const UserSideBar = () => {
             hover:scale-[1.025]">
                 <FaHeartBroken className='text-2xl'/>
                 <button type='button' className='grid place-items-center' onClick={() => navigate("/")}>
-                    <p className='text-center font-semibold text-sm w-16 leading-[1.1rem]'>Borrar Cuenta</p>
+                    <p className='text-center font-semibold text-sm w-16 leading-[1.1rem]'>Borrar cuenta</p>
                 </button>
             </div>
         </div>

@@ -53,8 +53,9 @@ const NotificationsModal = ({
                                 </p>
                             </div>
                         </Link>
-                        <img src={logo} alt="Matcher logo" className="block w-10 cursor-pointer"
-                        onClick={() => handleClose()} />
+                        <div className="w-10 cursor-pointer" onClick={() => handleClose()}>
+                            <img src={logo} alt="Matcher logo" className="block w-full" />
+                        </div>
                     </div>
                     <div className="absolute -bottom-3 rounded-full h-[3px] w-[99.5%] bg-[#FFCBCB]" />
                 </div>

@@ -27,7 +27,7 @@ const MatchesAndChats = ({messagesState, matchesState, setMatchesState, setMessa
                 onClick={() => handleMatches()}>
                     <FaHeart className={matchesState ? "text-[#ed3434] text-[2rem]"
                     : "text-[#FF929D] text-[2rem]"} />
-                    <p className={matchesState ? "text-[#ed3434] text-sm textShadowSm font-semibold tracking-wide"
+                    <p className={matchesState ? "text-[#ed3434] text-sm Sm font-semibold tracking-wide"
                     : "text-neutral-700 text-sm font-semibold tracking-wide textShadowSm"}>
                         Matches
                     </p>
